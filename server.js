@@ -14,12 +14,15 @@ const app = express();
 
 // ------------------- MIDDLEWARE
 
+// Serve Public Assets
+app.use(express.static(__dirname + '/public'));
+
 // Init BodyParser
 app.use(bodyParser.json());
 
 // ------------------- VIEW ROUTES
 
-// app.use('/', routes.views);
+app.use('/', routes.views);
 
 // ------------------- API ROUTES
 
