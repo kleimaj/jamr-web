@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
-    displayName: {
+    artistName: {
         required: true,
         type: String,
         minlength: 3,
