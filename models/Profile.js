@@ -2,10 +2,6 @@ const mongoose = require ('mongoose');
 const User = require('./User')
 
 const ProfileSchema = new mongoose.Schema({
-    User: {
-        required: true,
-        type: User.schema,
-    },
     displayName: {
         required: true,
         type: String,
