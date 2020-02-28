@@ -21,24 +21,26 @@ console.log('connected');
 
 // Ajax call.
 $("form").submit(function(event){
-
+    console.log('creating ajax POST request');
     
     event.preventDefault();
     let userData = $("#validationTooltipUsername").val();
     console.log(userData);
     let passwordData = $("#exampleInputPassword1").val();
     console.log(passwordData);
-   
+   let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
+   console.log(body);
         $.ajax({
   
             // What kind of request
             method: "POST",
         
             // The URL for the request
-            url: 'api/v1/users',
-        
+            url: '/api/v1/users',
+            
+            contentType: 'application/json',
             // The data to send aka query parameters
-            data: `{'username':${userData}, 'password':${passwordData}}`,
+            data: body,
             // data: $("form").serialize(),
         
             // Code to run if the request succeeds;
