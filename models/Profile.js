@@ -8,6 +8,10 @@ const ProfileSchema = new mongoose.Schema({
         minlength: 3,
         maxlength: 50,
     },
+    User: {
+        requiredPaths: true,
+        type: User.schema,
+    },
     instruments: {
         type: [String],
         min: 0,
