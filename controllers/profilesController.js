@@ -1,4 +1,5 @@
 const db = require('../models')
+const mongoose = require('mongoose');
 
 const index = (req, res) => {
     db.Profile.find({}, (err, allProfiles) => {
@@ -24,32 +25,46 @@ const show = (req, res) => {
             }
         });
     });
-    // db.Profile.findById({_id: req.params.id}, (err, foundProfile) => {
-    //     if (err) return res.status(400).json({status: 400, error: 'Profile Not Found, please try again'});
-    //     console.log('Profile found')
-    //     res.json(foundProfile);
-    // });
+}
+
+const update = (req, res) => {
+    console.log('updating profile...');
+    db.Profile.findByIdAndUpdate({_id: req.params.id}, req.body, (err, updatedProfile) => {
+        if (err) return res.status(400).json({status: 400, error: 'Unable to update Profile, please try again'});
+        console.log('profile updated...');
+        res.json(newProfile);
+    });
 }
 
 const create = (req, res) => {
     console.log('creating profile...');
+    console.log(req.body);
+    // const userRef = mongoose.Types.ObjectId(req.body.UserRef);
+    // const newProfile = {displayName: req.body.displayName, UserRef: userRef}
     db.Profile.create(req.body, (err, newProfile) => {
         if (err) return res.status(400).json({status: 400, error: 'Unable to create Profile, please try again'});
         console.log('profile created...');
+        console.log(newProfile);
         res.json(newProfile);
     });
 }
-// const destroy = (req, res) => {
-//     db.Profile.findByIdAndDelete({_id: req.params.id}, (err, deletedProfile) => {
-//         if (err) return res.status(400).json({status: 400, error: 'Unable to delete Profile, please try again'});
-//         // delete user
-//         db.User.findByIdAndDelete
-//         // res.json(newProfile);
-//     });
-// }
+const destroy = (req, res) => {
+    console.log('deleting user...');
+    db.User.findByIdAndDelete({_id: req.params.id}, (err, deletedUser) => {
+        console.log('user deleted...');
+        console.log('deleting profile...');
+        db.Profile.findByIdAndDelete({_id: req.params.id}, (err, deletedProfile) => {
+            if (err) return res.status(400).json({status: 400, error: 'Unable to delete Profile, please try again'});
+            // delete user
+            console.log('profile deleted...');
+        });    
+    });
+}
 
 module.exports = {
     index,
     show,
     create,
+    update,
+    destroy,
 }
