@@ -28,7 +28,7 @@ $("form").submit(function(event){
     console.log(userData);
     let passwordData = $("#exampleInputPassword1").val();
     console.log(passwordData);
-   let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
+    let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
    console.log(body);
         $.ajax({
   

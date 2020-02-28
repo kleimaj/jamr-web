@@ -8,6 +8,16 @@ const index = (req, res) => {
     });
 }
 
+const login = (req, res) => {
+    console.log('Logging in user...');
+    console.log(req.body);
+    db.User.find(req.body, (err, foundUser) => {
+        if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
+
+        res.json(foundUser);
+    });
+}
+
 const show = (req, res) => {
     db.User.findById({_id: req.params.id}, (err, foundUser) => {
         if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
@@ -31,4 +41,5 @@ module.exports = {
     index,
     show,
     create,
+    login,
 }
