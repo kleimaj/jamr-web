@@ -1,5 +1,4 @@
 const mongoose = require ('mongoose');
-const User = require('./User')
 
 const ProfileSchema = new mongoose.Schema({
     displayName: {
@@ -8,9 +7,9 @@ const ProfileSchema = new mongoose.Schema({
         minlength: 3,
         maxlength: 50,
     },
-    User: {
-        requiredPaths: true,
-        type: User.schema,
+    UserRef: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
     },
     instruments: {
         type: [String],
