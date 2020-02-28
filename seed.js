@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 const users = require('./seed/populateUsers');
 
-
 const seedDB = () => {
     console.log('nuking users...');
     db.User.deleteMany({}, (err, nukedUsers) => {
