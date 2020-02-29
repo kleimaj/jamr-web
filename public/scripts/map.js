@@ -25,6 +25,8 @@ userMarker.addListener('click', function() {
   });
 
 const getProfiles = () => {
+$('#map').css("display", "block");
+$('.prompt').css("display","none");
     $.ajax({
   
         // What kind of request
@@ -73,4 +75,6 @@ function onError(xhr, status, errorThrown) {
     console.log("Status: " + status);
     console.dir(xhr);
 };
-getProfiles();
+// getProfiles();
+$('#map').css("display", "none");
+$('.show').on('click', getProfiles);

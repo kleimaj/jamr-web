@@ -12,6 +12,9 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="/styles/main.css">
+
+    <!-- Google Map -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
     
     <title>Jamr</title>
 </head>
@@ -42,6 +45,11 @@
         <h1>Welcome, userName</h1>
         <div class="container mt-5">
             <div class="jumbotron jumbotron-fluid">
+
+                <div class="map_container">
+                    <div id="map"></div>
+                </div>
+
                 <div class="container">
                 <h1 class="display-4">Find local Musicians</h1>
                     <button type="button" class="btn btn-primary lead text-center">
@@ -65,6 +73,6 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <script src="/scripts/app.js"></script>
+    <script src="/scripts/map.js"></script>
 </body>
 </html>
