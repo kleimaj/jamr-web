@@ -38,7 +38,7 @@ const update = (req, res) => {
 
 const create = (req, res) => {
     console.log('creating profile...');
-    console.log(req.body);
+    // console.log(req.body);
     // const userRef = mongoose.Types.ObjectId(req.body.UserRef);
     // const newProfile = {displayName: req.body.displayName, UserRef: userRef}
     db.Profile.create(req.body, (err, newProfile) => {
