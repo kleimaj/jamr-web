@@ -25,8 +25,15 @@ router.get('/createProfile', (req,res) => {
     });
 });
 
+
 router.get('/profiles/:id', (req,res) => {
     res.sendFile('views/profiles/main.html', {
+        root: __dirname + '/../'
+    });
+ });
+
+router.get('/map', (req, res) => {
+res.sendFile('views/map/map.html', {
         root: __dirname + '/../'
     });
 });
@@ -36,8 +43,6 @@ router.get('/profiles/:id/settings', (req,res) => {
         root: __dirname + '/../'
     });
 });
-
-
 
 
 module.exports = router;

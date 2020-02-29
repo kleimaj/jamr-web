@@ -1,5 +1,4 @@
 const db = require('../models')
-const mongoose = require('mongoose');
 
 const index = (req, res) => {
     db.Profile.find({}, (err, allProfiles) => {
@@ -12,7 +11,8 @@ const index = (req, res) => {
 const show = (req, res) => {
     db.User.find({$and: [{username: req.body.username}, {password: req.body.password}]}, (err, foundUser) => {
         if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
-        console.log('User found')
+        console.log('User found');
+        console.log(foundUser);
         db.Profile.find({UserRef: foundUser}, (err, foundProfile) => {
             if (err) return res.status(400).json({status: 400, error: 'Profile Not Found, please try again'});
             if (foundProfile.length === 0) {
@@ -38,9 +38,6 @@ const update = (req, res) => {
 
 const create = (req, res) => {
     console.log('creating profile...');
-    // console.log(req.body);
-    // const userRef = mongoose.Types.ObjectId(req.body.UserRef);
-    // const newProfile = {displayName: req.body.displayName, UserRef: userRef}
     db.Profile.create(req.body, (err, newProfile) => {
         if (err) return res.status(400).json({status: 400, error: 'Unable to create Profile, please try again'});
         console.log('profile created...');

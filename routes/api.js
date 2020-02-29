@@ -5,6 +5,7 @@ const ctrl = require('../controllers');
 // -------- User Routes
 router.get('/users', ctrl.users.index);
 router.get('/users/:id', ctrl.users.show);
+// router.get('/login', ctrl.users.login);
 router.post('/users', ctrl.users.create);
 
 // -------- Profile Routes
