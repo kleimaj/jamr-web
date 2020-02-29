@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
         root: __dirname + '/../'
     });
 })
+
 router.get('/login', (req, res) => {
     res.sendFile('views/login/login.html', {
         root: __dirname + '/../'
