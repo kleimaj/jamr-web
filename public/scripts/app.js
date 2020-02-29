@@ -20,35 +20,23 @@ console.log('connected');
 //   })();
 
 // Ajax call.
-$(".signin").submit(function(event){
-    console.log('creating ajax POST request');
-
-   console.log('Getting Profile data...');
-   let artist = $('.artistName').val();
-   console.log(artist);
- 
-   let bioData = $('#bio').val();
-   console.log(bioData);
- 
-   let instrument = $('.instru').val();
-   console.log(instrument);
- 
-   let genre = $('.genre').val();
-   console.log(genre);
- 
-   let body = JSON.stringify({
-       artistName:`${artist}`, 
-       genres:`${genre}`,
-       instruments:`${instrument}`,
-       bio:`${bioData}` 
-     });
+$(".login").submit(function(event){
+    event.preventDefault();
+    console.log('Getting User data...');
+    let userData = $("#validationTooltipUsername").val();
+    console.log(userData);
+    let passwordData = $("#exampleInputPassword1").val();
+    console.log(passwordData);
+    let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
+    console.log(body);
+        //   Ajax
         $.ajax({
   
             // What kind of request
             method: "GET",
         
             // The URL for the request
-            url: '/api/v1/users',
+            url: `/api/v1/users/${body}`,
             
             contentType: 'application/json',
             // The data to send aka query parameters
@@ -63,9 +51,7 @@ $(".signin").submit(function(event){
             // status codes are passed to the function
             error: onError
         });
-
-   
-    });
+});
 
 
 // Signup
@@ -79,7 +65,6 @@ $(".signup").submit(function(event){
   // $('#bio').empty();
   // $('.instru').empty();
   // $('.genre').empty();
-  event.preventDefault();
   let userData = $("#validationTooltipUsername").val();
   console.log(userData);
   let passwordData = $("#exampleInputPassword1").val();
@@ -128,6 +113,7 @@ function onSuccessSignUp(json) {
 function onSuccessLogin(json) {
     console.log("Successfully logged in user..."); 
     console.log(json);
+    localStorage.setItem('_id', json._id);
 };
     
 function onError(xhr, status, errorThrown) {
