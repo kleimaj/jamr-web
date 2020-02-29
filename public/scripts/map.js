@@ -50,6 +50,21 @@ const getProfiles = () => {
 function onSuccess(json) {
     console.log("Successfully retrieved profiles..."); 
     console.log(json);
+    for (let user of json) {
+        console.log(user.location);
+        let lat = parseFloat(user.location[0]);
+        let lng = parseFloat(user.location[1]);
+        console.log(lat,lng)
+        let userMarker = new google.maps.Marker({
+            position: {lat: lat, lng: lng}, 
+            map: map,
+            icon: iconOther
+        });
+        userMarker.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(userMarker.getPosition());
+          });
+    }
     // localStorage.setItem('_id', json._id);
 };
 function onError(xhr, status, errorThrown) {

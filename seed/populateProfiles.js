@@ -1,15 +1,15 @@
 module.exports = [
     {
         artistName: 'Jacob',
-        location: ['37.78','-122.44'],
+        location: [37.805408, -122.436301],
     },
     {
         artistName: 'Eddie',
-        location: ['37.824499','-122.371394'],
+        location: [37.824499,-122.371394],
     },
     {
         artistName: 'Kesha',
-        location: ['37.78','-122.44'],
+        location: [37.78,-122.44],
     }
 ]
 
