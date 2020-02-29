@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Google Font -->
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+     <!-- Bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
+     <!-- Main CSS -->
+     <link rel="stylesheet" href="/styles/main.css">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome, userName</h1>
+    <div class="h3 text-center mt-5">
+        Create your Profile
+    </div>
+
+    <div class="container mt-5">
+
+        <form class="needs-validation" novalidate>
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom01">Artist Name</label>
+                <input type="text" class="form-control artistName" id="validationCustom01" value="" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                  <p>Bio</p>
+                <label for="validationCustom02"></label>
+                <textarea name="" id="bio" placeholder="Bio">
+
+                </textarea>
+              </div>
+
+              <select class=" instru custom-select mt-5 col-md-12">
+                <option selected>Select Instruments</option>
+                <option value="guitar">Guitar</option>
+                <option value="piano">Piano</option>
+                <option value="bass">Bass</option>
+                <option value="drums">Drums</option>
+                <option value="samples/dj">Samples / DJ </option>
+              </select>
+
+              <select class="genre custom-select mt-5 col-md-12">
+                <option selected>Select Your Genres</option>
+                <option value="rock">Rock</option>
+                <option value="alternative">Alternative</option>
+                <option value="folk">Folk</option>
+                <option value="electronica">Electronica</option>
+                <option value="jazz"> Jazz </option>
+                <option value="acoustic"> Acoustic </option>
+                <option value="hip hop"> Hip Hop </option>
+              </select>
+              
+            </div>
+            
+            <button class="btn btn-primary mt-5 mb-5" type="submit">
+                Create Profile
+            </button>
+
+          </form>
+          
+          
+    </div>
+
+<!--  Jquery -->
+<script 
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+<script src="/scripts/createProfile.js"></script>
+    
+</html>
