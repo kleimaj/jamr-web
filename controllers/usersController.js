@@ -8,15 +8,15 @@ const index = (req, res) => {
     });
 }
 
-const login = (req, res) => {
-    console.log('Logging in user...');
-    console.log(req.body);
-    db.User.find(req.body, (err, foundUser) => {
-        if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
+// const login = (req, res) => {
+//     console.log('Logging in user...');
+//     // console.log(req.body);
+//     db.User.find(req.body, (err, foundUser) => {
+//         if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
 
-        res.json(foundUser);
-    });
-}
+//         res.json(foundUser);
+//     });
+// }
 
 const show = (req, res) => {
     db.User.findById({_id: req.params.id}, (err, foundUser) => {
@@ -28,7 +28,7 @@ const show = (req, res) => {
 
 const create = (req, res) => {
     console.log('creating user...');
-    console.log(req);
+    // console.log(req);
     console.log(req.body);
     db.User.create(req.body, (err, newUser) => {
         if (err) return res.status(400).json({status: 400, error: 'Unable to create User, please try again'});
@@ -41,5 +41,5 @@ module.exports = {
     index,
     show,
     create,
-    login,
+    // login,
 }

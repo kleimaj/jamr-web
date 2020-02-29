@@ -22,18 +22,30 @@ console.log('connected');
 // Ajax call.
 $(".signin").submit(function(event){
     console.log('creating ajax POST request');
-    
-    event.preventDefault();
-    let userData = $("#validationTooltipUsername").val();
-    console.log(userData);
-    let passwordData = $("#exampleInputPassword1").val();
-    console.log(passwordData);
-    let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
-   console.log(body);
+
+   console.log('Getting Profile data...');
+   let artist = $('.artistName').val();
+   console.log(artist);
+ 
+   let bioData = $('#bio').val();
+   console.log(bioData);
+ 
+   let instrument = $('.instru').val();
+   console.log(instrument);
+ 
+   let genre = $('.genre').val();
+   console.log(genre);
+ 
+   let body = JSON.stringify({
+       artistName:`${artist}`, 
+       genres:`${genre}`,
+       instruments:`${instrument}`,
+       bio:`${bioData}` 
+     });
         $.ajax({
   
             // What kind of request
-            method: "POST",
+            method: "GET",
         
             // The URL for the request
             url: '/api/v1/users',
@@ -67,28 +79,17 @@ $(".signup").submit(function(event){
   // $('#bio').empty();
   // $('.instru').empty();
   // $('.genre').empty();
+  event.preventDefault();
+  let userData = $("#validationTooltipUsername").val();
+  console.log(userData);
+  let passwordData = $("#exampleInputPassword1").val();
+  console.log(passwordData);
+  let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
+ console.log(body);
+
   
-  
-  console.log('Getting Profile data...');
-  let artist = $('.artistName').val();
-  console.log(artist);
 
-  let bioData = $('#bio').val();
-  console.log(bioData);
-
-  let instrument = $('.instru').val();
-  console.log(instrument);
-
-  let genre = $('.genre').val();
-  console.log(genre);
-
-  let body = JSON.stringify({
-      artistName:`${artist}`, 
-      genres:`${genre}`,
-      instruments:`${instrument}`,
-      bio:`${bioData}` 
-    });
-
+console.log('making ajax POST request');
 //   Ajax
 $.ajax({
   
@@ -96,7 +97,7 @@ $.ajax({
     method: "POST",
 
     // The URL for the request
-    url: '/api/v1/profile',
+    url: '/api/v1/users',
     
     contentType: 'application/json',
     // The data to send aka query parameters
@@ -119,7 +120,9 @@ $.ajax({
  
 function onSuccessSignUp(json) {
     console.log("Successfully registered user..."); 
-    window.location.pathname = '/createProfile'
+    // console.log(json);
+    localStorage.setItem('_id', json._id);
+    window.location.pathname = '/createProfile';
     console.log(json);
 };
 function onSuccessLogin(json) {
