@@ -20,7 +20,7 @@ console.log('connected');
 //   })();
 
 // Ajax call.
-$("form").submit(function(event){
+$(".signin").submit(function(event){
     console.log('creating ajax POST request');
     
     event.preventDefault();
@@ -45,7 +45,7 @@ $("form").submit(function(event){
         
             // Code to run if the request succeeds;
             // the response is passed to the function
-            success: onSuccess,
+            success: onSuccessLogin,
         
             // Code to run if the request fails; the raw request and
             // status codes are passed to the function
@@ -58,8 +58,7 @@ $("form").submit(function(event){
 
 // Signup
 console.log('Sign up...');
-$("form").submit(function(event){
-  
+$(".signup").submit(function(event){
   event.preventDefault();
   
   // On load, Check form is empty.
@@ -106,7 +105,7 @@ $.ajax({
 
     // Code to run if the request succeeds;
     // the response is passed to the function
-    success: onSuccess,
+    success: onSuccessSignUp,
 
     // Code to run if the request fails; the raw request and
     // status codes are passed to the function
@@ -118,8 +117,13 @@ $.ajax({
   });
 
  
-function onSuccess(json) {
-    console.log("Successfully created user..."); 
+function onSuccessSignUp(json) {
+    console.log("Successfully registered user..."); 
+    window.location.pathname = '/createProfile'
+    console.log(json);
+};
+function onSuccessLogin(json) {
+    console.log("Successfully logged in user..."); 
     console.log(json);
 };
     
