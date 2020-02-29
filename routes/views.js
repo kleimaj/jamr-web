@@ -25,6 +25,12 @@ router.get('/createProfile', (req,res) => {
     });
 });
 
+router.get('/profiles/:id', (req,res) => {
+    res.sendFile('views/profiles/main.html', {
+        root: __dirname + '/../'
+    });
+});
+
 
 
 module.exports = router;
