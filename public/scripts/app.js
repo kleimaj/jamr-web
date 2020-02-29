@@ -55,6 +55,68 @@ $("form").submit(function(event){
    
     });
 
+
+// Signup
+console.log('Sign up...');
+$("form").submit(function(event){
+  
+  event.preventDefault();
+  
+  // On load, Check form is empty.
+
+  // $('.artistName').empty();
+  // $('#bio').empty();
+  // $('.instru').empty();
+  // $('.genre').empty();
+  
+  
+  console.log('Getting Profile data...');
+  let artist = $('.artistName').val();
+  console.log(artist);
+
+  let bioData = $('#bio').val();
+  console.log(bioData);
+
+  let instrument = $('.instru').val();
+  console.log(instrument);
+
+  let genre = $('.genre').val();
+  console.log(genre);
+
+  let body = JSON.stringify({
+      artistName:`${artist}`, 
+      genres:`${genre}`,
+      instruments:`${instrument}`,
+      bio:`${bioData}` 
+    });
+
+//   Ajax
+$.ajax({
+  
+    // What kind of request
+    method: "POST",
+
+    // The URL for the request
+    url: '/api/v1/profile',
+    
+    contentType: 'application/json',
+    // The data to send aka query parameters
+    data: body,
+    // data: $("form").serialize(),
+
+    // Code to run if the request succeeds;
+    // the response is passed to the function
+    success: onSuccess,
+
+    // Code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    error: onError
+});
+
+  
+      
+  });
+
  
 function onSuccess(json) {
     console.log("Successfully created user..."); 
