@@ -24,12 +24,7 @@
                 Welcome, (userPicture) <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
             </a>
             <form class="form-inline">
-                <a 
-                class="navbar-brand" 
-                href="/profiles/_id/settings">
-                Settings
-                </a>
-                <a class="navbar-brand" href="/">Sign out</a>
+                <a class="navbar-brand" href="/profiles/_id">Home</a>
             </form>
         </nav>
 
@@ -41,14 +36,27 @@
   
         <h1>Welcome, userName</h1>
         <div class="container mt-5">
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                <h1 class="display-4">Find local Musicians</h1>
-                    <p class="lead text-center">
-                    Click here to share your location
-                    </p>
+            <h1>Update your Profile</h1>
+
+            <form>
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">userName</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3">
+                  </div>
                 </div>
-            </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+
+                <button class="btn btn-primary">
+                    Save Changes
+                </button>
+                
+              </form>
             
         </div>
 

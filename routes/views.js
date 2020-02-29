@@ -31,6 +31,13 @@ router.get('/profiles/:id', (req,res) => {
     });
 });
 
+router.get('/profiles/:id/settings', (req,res) => {
+    res.sendFile('views/profiles/settings.html', {
+        root: __dirname + '/../'
+    });
+});
+
+
 
 
 module.exports = router;
