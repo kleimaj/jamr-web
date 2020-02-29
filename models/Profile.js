@@ -31,8 +31,6 @@ const ProfileSchema = new mongoose.Schema({
     },
     location: {
         type: [String],
-        min: 2,
-        max: 2,
     }
 });
 
