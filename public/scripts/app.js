@@ -20,20 +20,32 @@ console.log('connected');
 //   })();
 
 // Ajax call.
-$("form").submit(function(event){
+$(".signin").submit(function(event){
     console.log('creating ajax POST request');
-    
-    event.preventDefault();
-    let userData = $("#validationTooltipUsername").val();
-    console.log(userData);
-    let passwordData = $("#exampleInputPassword1").val();
-    console.log(passwordData);
-    let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
-   console.log(body);
+
+   console.log('Getting Profile data...');
+   let artist = $('.artistName').val();
+   console.log(artist);
+ 
+   let bioData = $('#bio').val();
+   console.log(bioData);
+ 
+   let instrument = $('.instru').val();
+   console.log(instrument);
+ 
+   let genre = $('.genre').val();
+   console.log(genre);
+ 
+   let body = JSON.stringify({
+       artistName:`${artist}`, 
+       genres:`${genre}`,
+       instruments:`${instrument}`,
+       bio:`${bioData}` 
+     });
         $.ajax({
   
             // What kind of request
-            method: "POST",
+            method: "GET",
         
             // The URL for the request
             url: '/api/v1/users',
@@ -45,7 +57,7 @@ $("form").submit(function(event){
         
             // Code to run if the request succeeds;
             // the response is passed to the function
-            success: onSuccess,
+            success: onSuccessLogin,
         
             // Code to run if the request fails; the raw request and
             // status codes are passed to the function
@@ -58,8 +70,7 @@ $("form").submit(function(event){
 
 // Signup
 console.log('Sign up...');
-$("form").submit(function(event){
-  
+$(".signup").submit(function(event){
   event.preventDefault();
   
   // On load, Check form is empty.
@@ -68,28 +79,17 @@ $("form").submit(function(event){
   // $('#bio').empty();
   // $('.instru').empty();
   // $('.genre').empty();
+  event.preventDefault();
+  let userData = $("#validationTooltipUsername").val();
+  console.log(userData);
+  let passwordData = $("#exampleInputPassword1").val();
+  console.log(passwordData);
+  let body = JSON.stringify({username:`${userData}`, password:`${passwordData}`})
+ console.log(body);
+
   
-  
-  console.log('Getting Profile data...');
-  let artist = $('.artistName').val();
-  console.log(artist);
 
-  let bioData = $('#bio').val();
-  console.log(bioData);
-
-  let instrument = $('.instru').val();
-  console.log(instrument);
-
-  let genre = $('.genre').val();
-  console.log(genre);
-
-  let body = JSON.stringify({
-      artistName:`${artist}`, 
-      genres:`${genre}`,
-      instruments:`${instrument}`,
-      bio:`${bioData}` 
-    });
-
+console.log('making ajax POST request');
 //   Ajax
 $.ajax({
   
@@ -97,7 +97,7 @@ $.ajax({
     method: "POST",
 
     // The URL for the request
-    url: '/api/v1/profile',
+    url: '/api/v1/users',
     
     contentType: 'application/json',
     // The data to send aka query parameters
@@ -106,7 +106,7 @@ $.ajax({
 
     // Code to run if the request succeeds;
     // the response is passed to the function
-    success: onSuccess,
+    success: onSuccessSignUp,
 
     // Code to run if the request fails; the raw request and
     // status codes are passed to the function
@@ -118,8 +118,15 @@ $.ajax({
   });
 
  
-function onSuccess(json) {
-    console.log("Successfully created user..."); 
+function onSuccessSignUp(json) {
+    console.log("Successfully registered user..."); 
+    // console.log(json);
+    localStorage.setItem('_id', json._id);
+    window.location.pathname = '/createProfile';
+    console.log(json);
+};
+function onSuccessLogin(json) {
+    console.log("Successfully logged in user..."); 
     console.log(json);
 };
     
