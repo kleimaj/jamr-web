@@ -59,7 +59,7 @@ console.log('Sign up...');
 $(".signup").submit(function(event){
   event.preventDefault();
   
-  // On load, Check form is empty.
+  // On load, clear out form.
 
   // $('.artistName').empty();
   // $('#bio').empty();
@@ -99,7 +99,7 @@ $.ajax({
 });
 
   
-      
+     
   });
 
  

@@ -17,25 +17,43 @@
 </head>
 <body>
 
-    <h1>Musician Seek</h1>
-    <div class="container mt-5">
-    <!-- Form -->
-       
-        <div class="row">
-            <a href="/login">
-                <button class="btn btn-primary" type="submit">Login</button>
+    <header>
+
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">
+                Welcome, (userPicture) <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
             </a>
-            <a href="/signup">
-                <button class="btn btn-primary" type="submit">Sign Up</button>
-            </a>
+            <form class="form-inline">
+                <a 
+                class="navbar-brand" 
+                href="/profiles/_id/settings">
+                Settings
+                </a>
+                <a class="navbar-brand" href="/">Sign out</a>
+            </form>
+        </nav>
+
+    </header>
+    
+
+    
+    <main>
+  
+        <h1>Welcome, userName</h1>
+        <div class="container mt-5">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                <h1 class="display-4">Find local Musicians</h1>
+                    <p class="lead text-center">
+                    Click here to share your location
+                    </p>
+                </div>
+            </div>
+            
         </div>
-        
-    </div>
-   
-    
-</div>
-    
-    
+
+    </main>
+     
     <!-- Jquery -->
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
