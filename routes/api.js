@@ -8,9 +8,9 @@ router.get('/users/:id', ctrl.users.show);
 router.post('/users', ctrl.users.create);
 
 // -------- Profile Routes
-router.get('/login/:id', ctrl.profiles.show);
-router.get('/login', ctrl.profiles.index);
-router.post('/login',ctrl.profiles.create)
+router.get('/profile/:id', ctrl.profiles.show);
+router.get('/profile', ctrl.profiles.index);
+router.post('/profile',ctrl.profiles.create)
 // router.get('')
 
 
