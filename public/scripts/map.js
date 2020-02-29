@@ -1,11 +1,17 @@
 console.log('Spice of Life');
-const default_coords = {lat: 37.78, lng: -122.44};
+const default_coords = {lat: 37.791034, lng: -122.401605};
+// 37.791034, -122.401605
+// {lat: 37.78, lng: -122.44};
 map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12
 });
 const icon = {
-    // url:'images/earthquake.png',
+    url:'images/musician.png',
+    scaledSize: new google.maps.Size(20, 20)
+}
+const iconOther = {
+    url:'images/musicianOther.png',
     scaledSize: new google.maps.Size(20, 20)
 }
 let userMarker = new google.maps.Marker({
@@ -25,7 +31,7 @@ const getProfiles = () => {
         method: "GET",
     
         // The URL for the request
-        url: `/api/v1/profiles/`,
+        url: `/api/v1/profile/`,
         
         contentType: 'application/json',
         // The data to send aka query parameters

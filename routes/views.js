@@ -24,6 +24,12 @@ router.get('/createProfile', (req,res) => {
     });
 });
 
+router.get('/map', (req, res) => {
+    res.sendFile('views/map/map.html', {
+        root: __dirname + '/../'
+    });
+});
+
 
 
 module.exports = router;
