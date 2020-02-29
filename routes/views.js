@@ -18,4 +18,12 @@ router.get('/signup', (req, res) => {
     });
 })
 
+router.get('/createProfile', (req,res) => {
+    res.sendFile('views/signup/createProfile.html', {
+        root: __dirname + '/../'
+    });
+});
+
+
+
 module.exports = router;
