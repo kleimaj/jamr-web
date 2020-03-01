@@ -13,6 +13,7 @@ router.get('/profile', ctrl.profiles.index);
 router.get('/profile/:id', ctrl.profiles.show);
 router.post('/profile',ctrl.profiles.create)
 router.put('/profile/:id', ctrl.profiles.update); // Edit Profile data.
+router.delete('/profile/:id', ctrl.profiles.destroy); // Edit Profile data.
 // router.get('')
 
 

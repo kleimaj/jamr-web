@@ -31,7 +31,7 @@ $(".update").submit(function(event){
     event.preventDefault();
     // console.log('save');
     //   Ajax
-    id = "5e5af74d746d0ca6fe861ec9"
+    // id = "5e5af74d746d0ca6fe861ec9"
     let body = {
         // _id: id,
         artistName: $('.artistName').val(),
@@ -73,10 +73,38 @@ function onSuccessUpdate(json) {
     console.log('success');
     console.log(json);
 }
+function onSuccessDelete(json) {
+    console.log('successfully deleted profile');
+    console.log(json);
+    window.location.pathname = '/';
+}
 function onError(xhr, status, errorThrown) {
     alert("Sorry, there was a problem!");
     console.log("Error: " + errorThrown);
     console.log("Status: " + status);
     console.dir(xhr);
 };
+function deleteProfile(event) {
+    id = "5e5af74d746d0ca6fe861ec9";
+    $.ajax({
+  
+        // What kind of request
+        method: "DELETE",
+    
+        // The URL for the request
+        url: `/api/v1/profile/${id}`,
+        
+        contentType: 'application/json',
+    
+        // Code to run if the request succeeds;
+        // the response is passed to the function
+        success: onSuccessDelete,
+    
+        // Code to run if the request fails; the raw request and
+        // status codes are passed to the function
+        error: onError
+    });
+
+}
 setDefaultInputs();
+$('.delete').on('click',deleteProfile);
