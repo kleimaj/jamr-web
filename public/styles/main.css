@@ -24,3 +24,9 @@ h1 {
 .form-row{
     margin: 0 auto;
 }
+.viewContainer {
+    line-height: .5em;
+}
+/* .viewButton {
+    background-color: blue;
+} */
