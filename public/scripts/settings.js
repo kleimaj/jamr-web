@@ -5,8 +5,10 @@ let thisGenre = localStorage.getItem('genres');
 let thisBio = localStorage.getItem('bio');
 
 function setDefaultInputs () {
-    $('.artistName')[0].value=thisArtist;
-    $('.bio')[0].value=thisBio;
+    if (thisArtist != undefined)
+        $('.artistName')[0].value=thisArtist;
+    if (thisBio != undefined)
+        $('.bio')[0].value=thisBio;
     let genreOptions = $('.genre').children('option');
     console.log(thisGenre);
     for (let i = 0; i < genreOptions.length; i++) {
@@ -85,7 +87,7 @@ function onError(xhr, status, errorThrown) {
     console.dir(xhr);
 };
 function deleteProfile(event) {
-    id = "5e5af74d746d0ca6fe861ec9";
+    // id = "5e5af74d746d0ca6fe861ec9";
     $.ajax({
   
         // What kind of request
