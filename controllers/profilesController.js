@@ -56,6 +56,7 @@ const destroy = (req, res) => {
             if (err) return res.status(400).json({status: 400, error: 'Unable to delete Profile, please try again'});
             // delete user
             console.log('profile deleted...');
+            res.json(deletedProfile);
         });    
     });
 }
