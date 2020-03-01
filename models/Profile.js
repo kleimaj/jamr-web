@@ -14,7 +14,7 @@ const ProfileSchema = new mongoose.Schema({
     instruments: {
         type: [String],
         min: 0,
-        max: 3
+        max: 3,
     },
     genres: {
         type: [String],

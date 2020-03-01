@@ -114,6 +114,10 @@ function onSuccessLogin(json) {
     console.log("Successfully logged in user..."); 
     console.log(json);
     localStorage.setItem('_id', json._id);
+    localStorage.setItem('artistName', json.artistName);
+    localStorage.setItem('instruments', json.instruments);
+    localStorage.setItem('genres', json.genres);
+    localStorage.setItem('bio', json.bio);
 };
     
 function onError(xhr, status, errorThrown) {
