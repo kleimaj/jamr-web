@@ -7,20 +7,29 @@ $("form").submit(function(event){
     let artist = $('.artistName').val();
     console.log(artist);
   
-    let bioData = $('#bio').val();
-    console.log(bioData);
+    // let bioData = $('#bio').val();
+    // console.log(bioData);
   
     let instrument = $('.instru').val();
     console.log(instrument);
   
     let genre = $('.genre').val();
     console.log(genre);
+
+    let bio = $('.bio').val();
+    console.log(bio);
+
+    localStorage.setItem('artistName', artist);
+    localStorage.setItem('instruments', instrument);
+    localStorage.setItem('genres', genre);
+    localStorage.setItem('bio', bio);
   
     let body = JSON.stringify({
+        _id: `${id}`,
         artistName:`${artist}`, 
         genres:`${genre}`,
         instruments:`${instrument}`,
-        bio:`${bioData}` ,
+        bio:`${bio}` ,
         UserRef: `${localStorage.getItem('_id')}`
       });
          $.ajax({
@@ -51,6 +60,7 @@ $("form").submit(function(event){
 function onSuccessProfileCreation(json) {
     console.log("Successfully created Profile..."); 
     console.log(json);
+    window.location.pathname = '/map';
     // localStorage.setItem('_id', json._id);
     // window.location.pathname = '/createProfile';
     // console.log(json);

@@ -49,12 +49,15 @@ const create = (req, res) => {
 }
 const destroy = (req, res) => {
     console.log('deleting user...');
-    db.User.findByIdAndDelete({_id: req.params.id}, (err, deletedUser) => {
+    console.log(req.params.id);
+    db.User.findOneAndRemove({_id: req.params.id}, (err, deletedUser) => {
         console.log('user deleted...');
+        console.log(deletedUser);
         console.log('deleting profile...');
-        db.Profile.findByIdAndDelete({_id: req.params.id}, (err, deletedProfile) => {
+        db.Profile.findOneAndRemove({_id: req.params.id}, (err, deletedProfile) => {
             if (err) return res.status(400).json({status: 400, error: 'Unable to delete Profile, please try again'});
             // delete user
+            console.log(deletedProfile);
             console.log('profile deleted...');
             res.json(deletedProfile);
         });    

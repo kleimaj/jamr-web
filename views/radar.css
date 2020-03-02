@@ -1,0 +1,81 @@
+svg {
+    width: 300px;
+    display: block;
+    position: absolute;
+  }
+  
+  .ball {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    
+    offset-path: path('M 75, 210 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0');
+    
+    offset-distance: 0%;
+  
+    animation: red-ball 3s linear infinite;
+  }
+  
+  @keyframes red-ball {
+    from {
+      offset-distance: 0%;
+    }
+    to {
+      offset-distance: 100%;
+    }
+  }
+  .container{
+    position: relative;
+    left: 200px;
+  }
+  
+  .ball2 {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    
+    offset-path: path('M 50, 200 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0');
+    offset-distance: 0%;
+  
+    animation: red-ball 5s linear infinite;
+  }
+  
+  .ball3 {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    
+    offset-path: path('M 25, 190 a 100,100 0 1,1 200,0 a 100,100 1 1,1 -200,0');
+    offset-distance: 0%;
+  
+    animation: red-ball 7s linear infinite;
+  }
+
+  #music {
+    position: relative;
+    right: 25px;
+    top: 160px;
+  }
+
+  .bounce {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+    transform: translateY(0);
+    }
+    40% {
+    transform: translateY(-10px);
+    }
+    60% {
+    transform: translateY(-6px);
+    }
+    }

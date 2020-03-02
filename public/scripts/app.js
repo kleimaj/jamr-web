@@ -113,11 +113,13 @@ function onSuccessSignUp(json) {
 function onSuccessLogin(json) {
     console.log("Successfully logged in user..."); 
     console.log(json);
-    localStorage.setItem('_id', json._id);
-    localStorage.setItem('artistName', json.artistName);
-    localStorage.setItem('instruments', json.instruments);
-    localStorage.setItem('genres', json.genres);
-    localStorage.setItem('bio', json.bio);
+    profile = json[0];
+    localStorage.setItem('_id', profile._id);
+    localStorage.setItem('artistName', profile.artistName);
+    localStorage.setItem('instruments', profile.instruments);
+    localStorage.setItem('genres', profile.genres);
+    localStorage.setItem('bio', profile.bio);
+    window.location.pathname = '/map';
 };
     
 function onError(xhr, status, errorThrown) {
