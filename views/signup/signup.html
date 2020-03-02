@@ -18,41 +18,49 @@
 <body>
 
     <h1>Jamr</h1>
+
     <div class="container mt-5">
     <!-- Form -->
         <form class ="signup needs-validation" novalidate>
        
-        <div class="row">
+          <div class="row">
 
-          <div class="col-md-6 mb-3">
-            
-            <label for="validationTooltipUsername">
-                Choose a unique username
-            </label>
+            <div class="col-md-3 mb-3 loginSignUp">
+              
+              <label for="validationTooltipUsername">
+                  Choose a unique username
+              </label>
 
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                    <!-- @ -->
-                </span>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="validationTooltipUsernamePrepend">
+                      <!-- @ -->
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                <div class="invalid-tooltip">
+                  This username is already taken.
+                </div>
               </div>
-              <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-              <div class="invalid-tooltip">
-                This username is already taken.
+
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              
+              <div class="signupBtn">
+                <button class="btn btn-primary" type="submit">
+                  Sign up
+                </button>
               </div>
             </div>
-
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            
-            <button class="btn btn-primary" type="submit">Sign up</button>
-           
+          </div>
+          
         </form>
         
-  
     </div>
+    
+    
     
      
     <!-- Jquery -->
