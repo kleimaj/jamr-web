@@ -6,6 +6,9 @@ const db = require('./models');
 
 const PORT = process.env.PORT || 4000;
 
+// Socket.io user ids.
+const activeUsers = {};
+
 // Init Routes
 const routes = require('./routes'); // Routes Module
 
@@ -40,4 +43,43 @@ app.use('*', (req, res) => {
 
 // ------------------ START SERVER
 
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+const server = app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+
+// Sockets ---------------------------------------------------------------
+
+// Init Socket.io
+const io = require("socket.io")(server);
+
+// Listens for every new connection.
+io.on('connection', (socket) => {
+    console.log('New user connected');
+
+    // socket.on, takes two parameters
+    // 1: a variable to be used in the frontend JavaScript file.
+    // 2: a callback to "respond" with data to the cilent.
+    // Simply put, this method recieves data sent from every connection.
+
+    socket.on('newUser', name => {
+        activeUsers[socket.id] = name;
+        // Sends data back to all clients, except the sender
+        socket.broadcast.emit('userConnected', name);
+    });
+
+    socket.on('sendMessage', message => {
+
+        console.log(message);
+
+        // Sends data back to all clients, except the sender
+        socket.broadcast.emit('chatMessage',{
+            message: message, 
+            name: activeUsers[socket.id]
+        });
+
+    });
+
+    socket.on('disconnect', () => {
+        socket.broadcast.emit('userDisconnected', activeUsers[socket.id]);
+        delete activeUsers[socket.id]; 
+    });
+
+});

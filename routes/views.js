@@ -38,6 +38,18 @@ res.sendFile('views/map/map.html', {
     });
 });
 
+router.get('/map2', (req, res) => {
+    res.sendFile('views/map/map2.html', {
+            root: __dirname + '/../'
+        });
+    });
+
+router.get('/chat', (req, res) => {
+    res.sendFile('views/chat/chat.html', {
+            root: __dirname + '/../'
+        });
+    });
+
 router.get('/profiles/:id/settings', (req,res) => {
     res.sendFile('views/profiles/settings.html', {
         root: __dirname + '/../'
