@@ -21,9 +21,15 @@ h1 {
     margin: 0 auto;
   }
 
-.form-row{
+.form-row, .loginSignUp{
     margin: 0 auto;
 }
+
+.signupBtn{
+    display: flex;
+    justify-content: center;
+}
+
 .viewContainer {
     line-height: .5em;
 }
