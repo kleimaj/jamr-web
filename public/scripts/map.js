@@ -1,13 +1,11 @@
-// console.log('Spice of Life');
-// const radar = require('./radar');
-// console.log(radar);
 const default_coords = {lat: 37.791034, lng: -122.401605};
 // 37.791034, -122.401605
 // {lat: 37.78, lng: -122.44};
 let infoWindows = [];
 map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
-    zoom: 12
+    zoom: 12,
+    disableDefaultUI: true,
 });
 const icon = {
     url:'images/musician.png',
@@ -17,11 +15,11 @@ const iconOther = {
     url:'images/musicianOther.png',
     scaledSize: new google.maps.Size(30, 30)
 }
-let userMarker = new google.maps.Marker({
-    position: default_coords, 
-    map: map,
-    icon: icon
-});
+// let userMarker = new google.maps.Marker({
+//     position: default_coords, 
+//     map: map,
+//     icon: icon
+// });
 let id = localStorage.getItem('_id');
 let thisArtist = localStorage.getItem('artistName');
 let thisInstrument = localStorage.getItem('instruments');
@@ -36,13 +34,35 @@ let infowindow = new google.maps.InfoWindow({
         <button class=viewButton>View</button>
     </div>`
   });
-userMarker.addListener('click', function() {
-    map.setZoom(12);
-    map.setCenter(userMarker.getPosition());
-    infowindow.open(userMarker.get('map'), userMarker);
-  });
 
-const getProfiles = () => {
+
+const getProfiles = (position) => {
+    document.querySelector('#status').innerHTML = '';
+    const default_coords = {};
+    default_coords.lat  = position.coords.latitude;
+    default_coords.lng = position.coords.longitude;
+
+    // default_coords.lat = latitude; 
+    // default_coords.lng = longitude;
+    let userMarker = new google.maps.Marker({
+        position: default_coords, 
+        map: map,
+        icon: icon
+    });
+    // attachModals(userMarker,)
+    userMarker.addListener('click', function() {
+        map.setZoom(12);
+        map.setCenter(userMarker.getPosition());
+        infowindow.open(userMarker.get('map'), userMarker);
+        if(infoWindows.length > 0){
+            console.log('here');
+            infoWindows[0].close();
+            infoWindows.splice(0,1);
+        }
+        // infowindow.open(marker.get('map'), marker);
+        infoWindows.push(infowindow);
+      });
+
     document.querySelector('.radar').childNodes = new Array();
 
     $('#map').css("display", "block");
@@ -121,16 +141,19 @@ function attachModals(marker, userObject) {
         infoWindows.push(infowindow);
       });
 }
-
+function makeMap() {
+    setTimeout(injectRadar,0);
+    setTimeout(getLocation,3000);
+}
 function getLocation() {
-    document.querySelector('.radar').insertAdjacentHTML("beforeend", radar);
 
+    // injectRadar();
     const status = document.querySelector('#status');
   
     if (!navigator.geolocation) {
       status.textContent = 'Geolocation is not supported by your browser';
     } else {
-      status.innerHTML = 'Finding location… (can take a few seconds)';
+      status.innerHTML = 'Finding users… (can take a few seconds)';
       navigator.geolocation.getCurrentPosition(getProfiles, error);
     }
 }
@@ -139,8 +162,10 @@ function error() {
     status.textContent = 'Unable to retrieve your location';
 }
       
-
+function injectRadar() {
+    document.querySelector('.radar').insertAdjacentHTML("beforeend", radar);
+}
 // getProfiles();
 $('#map').css("display", "none");
-$('.show').on('click', getLocation);
+$('.show').on('click', makeMap);
 // .appendChild(`${radar}`);

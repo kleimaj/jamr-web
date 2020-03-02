@@ -23,7 +23,6 @@ const show = (req, res) => {
 }
 
 const update = (req, res) => {
-    console.log('updating profile...');
     db.Profile.findOneAndUpdate({_id: req.params.id}, req.body, (err, updatedProfile) => {
         if (err) return res.status(400).json({status: 400, error: 'Unable to update Profile, please try again'});
         res.json(updatedProfile);
