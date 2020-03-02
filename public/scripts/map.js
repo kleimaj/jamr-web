@@ -1,6 +1,6 @@
 // console.log('Spice of Life');
 // const radar = require('./radar');
-console.log(radar);
+// console.log(radar);
 const default_coords = {lat: 37.791034, lng: -122.401605};
 // 37.791034, -122.401605
 // {lat: 37.78, lng: -122.44};
@@ -43,6 +43,7 @@ userMarker.addListener('click', function() {
   });
 
 const getProfiles = () => {
+    document.querySelector('.radar').childNodes = new Array();
 
     $('#map').css("display", "block");
     $('.prompt').css("display","none");
@@ -122,6 +123,8 @@ function attachModals(marker, userObject) {
 }
 
 function getLocation() {
+    document.querySelector('.radar').insertAdjacentHTML("beforeend", radar);
+
     const status = document.querySelector('#status');
   
     if (!navigator.geolocation) {
@@ -141,4 +144,3 @@ function error() {
 $('#map').css("display", "none");
 $('.show').on('click', getLocation);
 // .appendChild(`${radar}`);
-document.querySelector('.radar').insertAdjacentHTML("beforeend", radar);
