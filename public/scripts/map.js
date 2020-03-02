@@ -1,4 +1,6 @@
-console.log('Spice of Life');
+// console.log('Spice of Life');
+// const radar = require('./radar');
+console.log(radar);
 const default_coords = {lat: 37.791034, lng: -122.401605};
 // 37.791034, -122.401605
 // {lat: 37.78, lng: -122.44};
@@ -41,8 +43,9 @@ userMarker.addListener('click', function() {
   });
 
 const getProfiles = () => {
-$('#map').css("display", "block");
-$('.prompt').css("display","none");
+
+    $('#map').css("display", "block");
+    $('.prompt').css("display","none");
 
     $.ajax({
   
@@ -117,6 +120,25 @@ function attachModals(marker, userObject) {
         infoWindows.push(infowindow);
       });
 }
+
+function getLocation() {
+    const status = document.querySelector('#status');
+  
+    if (!navigator.geolocation) {
+      status.textContent = 'Geolocation is not supported by your browser';
+    } else {
+      status.innerHTML = 'Finding location… (can take a few seconds)';
+      navigator.geolocation.getCurrentPosition(getProfiles, error);
+    }
+}
+
+function error() {
+    status.textContent = 'Unable to retrieve your location';
+}
+      
+
 // getProfiles();
 $('#map').css("display", "none");
-$('.show').on('click', getProfiles);
+$('.show').on('click', getLocation);
+// .appendChild(`${radar}`);
+document.querySelector('.radar').insertAdjacentHTML("beforeend", radar);
