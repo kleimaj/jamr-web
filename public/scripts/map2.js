@@ -15,43 +15,6 @@ document.querySelector('#map');
 
 function getLocation() {
     const status = document.querySelector('#status');
-   
-    function success(position) {
-        // const status = document.querySelector('#status');
-       
-        const mapElement= document.querySelector('#map');
-        mapElement.style.display = 'block';
-
-        const default_coords = {};
-        const latitude  = position.coords.latitude;
-        const longitude = position.coords.longitude;
-
-        default_coords.lat = latitude; 
-        default_coords.lng = longitude;
-
-        let infoWindows = [];
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: default_coords,
-                zoom: 12
-            });
-            const icon = {
-                url:'images/musician.png',
-                scaledSize: new google.maps.Size(30, 30)
-            }
-            const iconOther = {
-                url:'images/musicianOther.png',
-                scaledSize: new google.maps.Size(30, 30)
-            }
-            let userMarker = new google.maps.Marker({
-                position: default_coords, 
-                map: map,
-                icon: icon
-            });
-    }
-  
-    function error() {
-      status.textContent = 'Unable to retrieve your location';
-    }
   
     if (!navigator.geolocation) {
       status.textContent = 'Geolocation is not supported by your browser';
@@ -60,6 +23,43 @@ function getLocation() {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   
+}
+
+function success(position) {
+  // const status = document.querySelector('#status');
+ 
+  const mapElement= document.querySelector('#map');
+  mapElement.style.display = 'block';
+
+  const default_coords = {};
+  const latitude  = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  default_coords.lat = latitude; 
+  default_coords.lng = longitude;
+
+  let infoWindows = [];
+      map = new google.maps.Map(document.getElementById('map'), {
+          center: default_coords,
+          zoom: 12
+      });
+      const icon = {
+          url:'images/musician.png',
+          scaledSize: new google.maps.Size(30, 30)
+      }
+      const iconOther = {
+          url:'images/musicianOther.png',
+          scaledSize: new google.maps.Size(30, 30)
+      }
+      let userMarker = new google.maps.Marker({
+          position: default_coords, 
+          map: map,
+          icon: icon
+      });
+}
+
+function error() {
+status.textContent = 'Unable to retrieve your location';
 }
   
 // let infoWindows = [];
