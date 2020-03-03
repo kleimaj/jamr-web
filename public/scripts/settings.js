@@ -13,7 +13,7 @@ function setDefaultInputs () {
     console.log(thisGenre);
     for (let i = 0; i < genreOptions.length; i++) {
         console.log(genreOptions[i].textContent);
-        if (genreOptions[i].textContent.toLowerCase()===thisGenre) {
+        if (genreOptions[i].textContent===thisGenre) {
             console.log(genreOptions[i].textContent)
             genreOptions[i].selected=true;
             break;
@@ -21,7 +21,7 @@ function setDefaultInputs () {
     }
     let instrOptions = $('.instru').children('option');
     for (let i = 0; i < instrOptions.length; i++) {
-        if (instrOptions[i].textContent.toLowerCase()===thisInstrument) {
+        if (instrOptions[i].textContent===thisInstrument) {
             // console.log(instrOptions[i].textContent)
             instrOptions[i].selected=true;
             break;
@@ -74,6 +74,7 @@ $(".update").submit(function(event){
 function onSuccessUpdate(json) {
     console.log('success');
     console.log(json);
+    window.location.pathname = '/map';
 }
 function onSuccessDelete(json) {
     console.log('successfully deleted profile');
@@ -108,5 +109,10 @@ function deleteProfile(event) {
     });
 
 }
+function signOut(){
+    localStorage.clear();
+    window.location.pathname = '/';
+}
 setDefaultInputs();
 $('.delete').on('click',deleteProfile);
+$('.signout').on('click',signOut);
