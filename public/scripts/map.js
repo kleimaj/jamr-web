@@ -48,18 +48,43 @@ let infowindow = new google.maps.InfoWindow({
             <h2>${thisArtist}</h2>
             <p>Loves ${thisGenre}</p>
             <p>Plays ${thisInstrument}</p>
-            <a href="#">Chat</a>
+            <a href="/settings">Edit</a>
             <img src=../images/available.svg alt="online">
         </div>`
   });
-
-
-const getProfiles = (position) => {
+function updatePosition(myCoords) {
+    let body = JSON.stringify({location: [myCoords.lat, myCoords.lng]});
+    $.ajax({
+  
+        // What kind of request
+        method: "PUT",
+    
+        // The URL for the request
+        url: `/api/v1/profile/${id}`,
+        
+        contentType: 'application/json',
+        // The data to send aka query parameters
+        data: body,
+    
+        // Code to run if the request succeeds;
+        // the response is passed to the function
+        success: updateSuccess,
+    
+        // Code to run if the request fails; the raw request and
+        // status codes are passed to the function
+        error: onError
+    });
+}
+function updateSuccess(json) {
+    console.log('Updated Location in Mongo');
+}
+function getProfiles(position) {
     document.querySelector('#status').innerHTML = '';
     const default_coords = {};
     default_coords.lat  = position.coords.latitude;
     default_coords.lng = position.coords.longitude;
     myCoords = default_coords;
+    updatePosition(myCoords);
     // default_coords.lat = latitude; 
     // default_coords.lng = longitude;
     let userMarker = new google.maps.Marker({
@@ -112,7 +137,7 @@ function onSuccess(json) {
     $('.filters').css('display','block'); 
     for (let user of json) {
         // console.log(user);
-        if (user._id != id)
+        if (user._id != id) {
             users.push(user);
         // console.log(user.location);
         let lat = parseFloat(user.location[0]);
@@ -130,6 +155,7 @@ function onSuccess(json) {
             map.setCenter(newMarker.getPosition());
           });
         attachModals(newMarker, user);
+        }
     }
     console.log(users);
     // localStorage.setItem('_id', json._id);
