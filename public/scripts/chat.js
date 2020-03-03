@@ -6,7 +6,8 @@ const messageForm = document.getElementById('send-container');
 const messageInput =document.getElementById('message-input');
 const chatBtn = document.querySelector('.chatBtn');
 
-const name = prompt('What is your artistName?');
+// const name = prompt('What is your artistName?');
+const name = localStorage.getItem('artistName');
 addMessage(`Welcome, ${name}`);
 
 // Socket channels
@@ -16,7 +17,6 @@ socket.emit('newUser', name);
 socket.emit('join', {name});
 
 socket.on('chatMessage', (res) => {
-    console.log(res);
     addMessage(`${res.name}: ${res.message}`);
 });
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/settings.css">
     
     <title>Jamr</title>
 </head>
@@ -20,11 +20,10 @@
     <header>
 
         <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand">
-                Welcome, (userPicture) <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+            <a class="navbar-brand">Jamr<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
             </a>
             <form class="form-inline">
-                <a class="navbar-brand" href="/profiles/_id">Home</a>
+                <a class="navbar-brand" href="/map">Home</a>
             </form>
         </nav>
 
@@ -55,36 +54,38 @@
                 <div class="form-group row">
                   <select class=" instru custom-select mt-5">
                     <option selected> Change your Instrument</option>
-                    <option value="guitar">Guitar</option>
-                    <option value="piano">Piano</option>
-                    <option value="bass">Bass</option>
-                    <option value="drums">Drums</option>
-                    <option value="samples/dj">Samples / DJ </option>
+                    <option value="Guitar">Guitar</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Bass">Bass</option>
+                    <option value="Drums">Drums</option>
+                    <option value="Samples/DJ">Samples / DJ </option>
                   </select>
                 </div>
 
                 <div class="form-group row">
-                  <select class="genre custom-select mt-5">
+                  <select multiple="multiple" class="genre custom-select mt-5">
                     <option selected>Change Your Genre</option>
-                    <option value="rock">Rock</option>
-                    <option value="alternative">Alternative</option>
-                    <option value="folk">Folk</option>
-                    <option value="electronica">Electronica</option>
-                    <option value="jazz">Jazz</option>
-                    <option value="acoustic">Acoustic</option>
-                    <option value="hip hop">Hip-Hop</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Alternative">Alternative</option>
+                    <option value="Folk">Folk</option>
+                    <option value="Electronica">Electronica</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Acoustic">Acoustic</option>
+                    <option value="Hip-Hop">Hip-Hop</option>
                   </select>
                 </div>
-
                 <button class="btn btn-primary mb-5" type="submit">
                     Save Changes
                 </button>
                 
               </form>
-
+              <button class="signout btn btn-primary">
+                Sign Out
+            </button>
               <button class="delete btn btn-danger">
                 Delete Account
-            </button>
+              </button>
+              
             
         </div>
 
@@ -102,5 +103,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script src="/scripts/settings.js"></script>
+    
 </body>
 </html>

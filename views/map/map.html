@@ -12,6 +12,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/radar.css">
     <title>Jamr</title>
 
         <!-- Google Maps API -->
@@ -22,32 +23,61 @@
 
         <nav class="navbar navbar-light bg-light justify-content-between">
             <a class="navbar-brand">
-                Welcome, (userPicture) <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+                Welcome, (username)<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
             </a>
             <form class="form-inline">
                 <a 
                 class="navbar-brand" 
-                href="/profiles/_id/settings">
+                href="/settings">
                 Settings
                 </a>
-                <!-- <a class="navbar-brand" href="/">Sign out</a> -->
+                <a class="navbar-brand" href="/lounge">Lounge</a>
             </form>
         </nav>
 
     </header>
 
-    <div w3-include-html="radar.html"></div>
+    <div class="radar"></div>
+
     <div class="map_container">
         <div id="map"></div>
     </div>
 
+    <div class="filters">
+        <select class="instru_filter custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option value="" selected>Filter by Instrument...</option>
+            <option value="Guitar">Guitar</option>
+            <option value="Piano">Piano</option>
+            <option value="Bass">Bass</option>
+            <option value="Drums">Drums</option>
+            <option value="Samples/DJ">Samples / DJ </option>
+        </select>
+
+        <select class="genre_filter custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option value="" selected>Filter by Genre...</option>
+            <option value="Rock">Rock</option>
+            <option value="Alternative">Alternative</option>
+            <option value="Folk">Folk</option>
+            <option value="Electronica">Electronica</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Acoustic">Acoustic</option>
+            <option value="Hip-Hop">Hip-Hop</option>
+        </select>
+
+        <label class="ml-3" for="formControlRange">Sort by Distance...</label>
+    <input type="range" id="distance" step="1" min="0" max="100" value="100">
+    <label id="distance_result">100 miles</label>
+
+    </div>
 
     <div class="container prompt">
         <h1 class="display-4">Find local Musicians</h1>
             <button type="button" class="show">
             Click here to share your location
             </button>
-        </div>
+    </div>
+    <p id="status" class="mt-5 text-center text-primary lead">
+
         <!-- Jquery -->
         <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -58,7 +88,7 @@
           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+    <script src="/scripts/radar.js"></script>
     <script src="/scripts/map.js"></script>
 
 </body>

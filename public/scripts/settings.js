@@ -10,19 +10,15 @@ function setDefaultInputs () {
     if (thisBio != undefined)
         $('.bio')[0].value=thisBio;
     let genreOptions = $('.genre').children('option');
-    console.log(thisGenre);
     for (let i = 0; i < genreOptions.length; i++) {
-        console.log(genreOptions[i].textContent);
-        if (genreOptions[i].textContent.toLowerCase()===thisGenre) {
-            console.log(genreOptions[i].textContent)
+        if (genreOptions[i].textContent===thisGenre) {
             genreOptions[i].selected=true;
             break;
         }
     }
     let instrOptions = $('.instru').children('option');
     for (let i = 0; i < instrOptions.length; i++) {
-        if (instrOptions[i].textContent.toLowerCase()===thisInstrument) {
-            // console.log(instrOptions[i].textContent)
+        if (instrOptions[i].textContent===thisInstrument) {
             instrOptions[i].selected=true;
             break;
         }
@@ -31,7 +27,6 @@ function setDefaultInputs () {
 
 $(".update").submit(function(event){
     event.preventDefault();
-    // console.log('save');
     //   Ajax
     // id = "5e5af74d746d0ca6fe861ec9"
     let body = {
@@ -42,7 +37,6 @@ $(".update").submit(function(event){
         genres: $('.genre').val(),
         
     };
-    console.log(body);
     localStorage.setItem('artistName', body.artistName);
     localStorage.setItem('instruments', body.instruments);
     localStorage.setItem('genres', body.genres);
@@ -72,12 +66,9 @@ $(".update").submit(function(event){
 });
 
 function onSuccessUpdate(json) {
-    console.log('success');
-    console.log(json);
+    window.location.pathname = '/map';
 }
 function onSuccessDelete(json) {
-    console.log('successfully deleted profile');
-    console.log(json);
     window.location.pathname = '/';
 }
 function onError(xhr, status, errorThrown) {
@@ -108,5 +99,10 @@ function deleteProfile(event) {
     });
 
 }
+function signOut(){
+    localStorage.clear();
+    window.location.pathname = '/';
+}
 setDefaultInputs();
 $('.delete').on('click',deleteProfile);
+$('.signout').on('click',signOut);
