@@ -2,18 +2,18 @@ module.exports = [
     {
         artistName: 'Jacob',
         instruments: ['Bass'],
-        genres: ['Funk'],
+        genres: ['Jazz'],
         location: [37.805408, -122.436301],
     },
     {
         artistName: 'Eddie',
         genres: ['Latin'],
-        instruments: ['Guitar'],
+        instruments: ['Skin Flute'],
         location: [37.824499,-122.371394],
     },
     {
         artistName: 'Kesha',
-        instruments: ['Vocals'],
+        instruments: ['Bass'],
         genres: ['Rock'],
         location: [37.78,-122.44],
     }
