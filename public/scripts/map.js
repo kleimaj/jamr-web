@@ -1,11 +1,13 @@
 const default_coords = {lat: 37.791034, lng: -122.401605};
 // 37.791034, -122.401605
 // {lat: 37.78, lng: -122.44};
+let myCoords = {};
 let users = [];
 let markers = [];
 let infoWindows = [];
 let gFilter = [];
 let iFilter = [];
+let dFilter = [];
 map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12,
@@ -43,11 +45,12 @@ let thisBio = localStorage.getItem('bio');
 let infowindow = new google.maps.InfoWindow({
     content: 
     `<div class=viewContainer>
-        <h4>${thisArtist}</h4>
-        <p>${thisInstrument}</p>
-        <p>${thisGenre}</p>
-        <a href="/settings"><button class=viewButton>Edit</button> </a>
-    </div>`
+            <h2>${thisArtist}</h2>
+            <p>Loves ${thisGenre}</p>
+            <p>Plays ${thisInstrument}</p>
+            <a href="#">Chat</a>
+            <img src=../images/available.svg alt="online">
+        </div>`
   });
 
 
@@ -56,7 +59,7 @@ const getProfiles = (position) => {
     const default_coords = {};
     default_coords.lat  = position.coords.latitude;
     default_coords.lng = position.coords.longitude;
-
+    myCoords = default_coords;
     // default_coords.lat = latitude; 
     // default_coords.lng = longitude;
     let userMarker = new google.maps.Marker({
@@ -144,11 +147,15 @@ function attachModals(marker, userObject) {
     let infowindow = new google.maps.InfoWindow({
         content: 
         `<div class=viewContainer>
-            <h4>${userObject.artistName}</h4>
-            <p>${userObject.instruments}</p>
-            <p>${userObject.genres}</p>
-            <button class=chatButton>Chat</button>
+            <h2>${userObject.artistName}</h2>
+            <p>Loves ${userObject.genres}</p>
+            <p>Plays ${userObject.instruments}</p>
+            <a href="#">Chat</a>
+            <img src=../images/unavailable.svg alt="online">
         </div>`
+        // <div style='width:100px;height:150px;'>
+        ,
+        maxWidth: 400
       });
 
       marker.addListener('click', function() {
@@ -164,7 +171,7 @@ function attachModals(marker, userObject) {
 function makeMap() {
     $('.show').css('display','none');
     setTimeout(injectRadar,0);
-    setTimeout(getLocation,3000);
+    setTimeout(getLocation,0000); // 3000
 }
 function getLocation() {
 
@@ -189,49 +196,109 @@ function injectRadar() {
 function updateMap() {
     let iFilter = $('.instru_filter').val();
     let gFilter = $('.genre_filter').val();
-    if (gFilter == '' && iFilter == '') {
-        for (let i = 0; i < users.length; i++) {
-            markers[i].setVisible(true);
+    let dFilter = $('#distance').val()
+    $('#distance_result').html(dFilter+' Miles');
+
+    markers.forEach((marker) => marker.setVisible(true));
+
+    hidden = users.filter(function(user,i) {
+        // check instrument
+        if (iFilter)
+            if (!users[i].instruments.includes(iFilter))
+                return true;
+        if (gFilter)
+            if (!users[i].genres.includes(gFilter))
+                return true;
+        if ((getDistanceBetweenPoints(myCoords.lat,myCoords.lng, users[i].location[0],users[i].location[1])) > dFilter) {
+            return true;
+        }
+    });
+    console.log(hidden);
+    hidden.forEach((user) => markers[users.indexOf(user)].setVisible(false));
+    // dFilter is indices to keep
+    // if (gFilter == '' && iFilter == '') {
+    //     for (let i = 0; i < users.length; i++) {
+    //         markers[i].setVisible(true);
+    //     }
+    // }
+    // else if (iFilter == '') { // if there is no instrument filter
+    //     for (let i = 0; i < users.length; i++) {
+    //         // update only genres
+    //         if (users[i].genres.includes(gFilter)){
+    //             markers[i].setVisible(true);
+    //         }
+    //         else {
+    //             markers[i].setVisible(false);
+    //         }
+    //     }
+    // }
+    // else if (gFilter == '') {
+    //     for (let i = 0; i < users.length; i++) {
+    //         if (users[i].instruments.includes(iFilter)){
+    //             markers[i].setVisible(true);
+    //         }
+    //         else {
+    //             markers[i].setVisible(false);
+    //         }
+    //     }
+    // }
+    // else {
+    //     for (let i = 0; i < users.length; i++) {
+    //         if (users[i].instruments.includes(iFilter) && 
+    //             users[i].genres.includes(gFilter)){
+    //             markers[i].setVisible(true);
+    //         }
+    //         else {
+    //             markers[i].setVisible(false);
+    //         }
+    //     }
+    // }
+}
+
+function degreesToRadians(degrees){
+    return degrees * Math.PI / 180;
+}
+function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
+    // The radius of the planet earth in meters
+    let R = 6378137;
+    let dLat = degreesToRadians(lat2 - lat1);
+    let dLong = degreesToRadians(lng2 - lng1);
+    let a = Math.sin(dLat / 2)
+            *
+            Math.sin(dLat / 2) 
+            +
+            Math.cos(degreesToRadians(lat1)) 
+            * 
+            Math.cos(degreesToRadians(lat1)) 
+            *
+            Math.sin(dLong / 2) 
+            * 
+            Math.sin(dLong / 2);
+
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    let distance = R * c;
+
+    return distance/1609.344;
+}
+function updateDistance() {
+    let newVal = $('#distance').val()
+    $('#distance_result').html(newVal+' Miles');
+    dFilter = [];
+    for (let i = 0; i < users.length; i++) {
+        let miles = getDistanceBetweenPoints(myCoords.lat,myCoords.lng, users[i].location[0],users[i].location[1])/1609.344;
+        // console.log(meters/1609.344,"miles");
+        if (miles < newVal) {
+            // markers[i].setVisible(false);
+            dFilter.push(i);
         }
     }
-    else if (iFilter == '') { // if there is no instrument filter
-        for (let i = 0; i < users.length; i++) {
-            // update only genres
-            if (users[i].genres.includes(gFilter)){
-                markers[i].setVisible(true);
-            }
-            else {
-                markers[i].setVisible(false);
-            }
-        }
-    }
-    else if (gFilter == '') {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].instruments.includes(iFilter)){
-                markers[i].setVisible(true);
-            }
-            else {
-                markers[i].setVisible(false);
-            }
-        }
-    }
-    else {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].instruments.includes(iFilter) && 
-                users[i].genres.includes(gFilter)){
-                markers[i].setVisible(true);
-            }
-            else {
-                markers[i].setVisible(false);
-            }
-        }
-    }
+    updateMap();
 }
 // getProfiles();
 $('#map').css("display", "none");
-$('.show').on('click', makeMap);
+$('.show').on('click', makeMap());
 $('.instru_filter').on('change',updateMap);
 $('.genre_filter').on('change',updateMap);
-
+$('#distance').on('change',updateMap);
 document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
 // .appendChild(`${radar}`);
