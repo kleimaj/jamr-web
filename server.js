@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 4000;
 
 // Socket.io user ids.
 const activeUsers = {};
+const users = {};
 
 // Init Routes
 const routes = require('./routes'); // Routes Module
@@ -61,9 +62,18 @@ io.on('connection', (socket) => {
 
     socket.on('newUser', name => {
         activeUsers[socket.id] = name;
+        users[name] = socket.id;
+        console.log(`Users: ${users}`);
         // Sends data back to all clients, except the sender
         socket.broadcast.emit('userConnected', name);
     });
+
+    socket.on('join', function (data) {
+        console.log(data);
+        console.log(data.name);
+        socket.join(data.name); // We are using room of socket io
+        io.sockets.in(data.name).emit('new_msg', {msg: 'hello'});
+      });
 
     socket.on('sendMessage', message => {
 

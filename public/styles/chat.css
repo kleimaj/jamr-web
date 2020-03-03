@@ -37,3 +37,9 @@ body {
   #message-input {
     flex-grow: 1;
   }
+
+  .chatBtn{
+    background-color: rgba(32, 37, 37, 0.24);
+    border-radius: .5rem;
+    height: 2rem;
+  }
