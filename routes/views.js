@@ -44,7 +44,7 @@ res.sendFile('views/map/map.html', {
 //         });
 //     });
 
-router.get('/chat', (req, res) => {
+router.get('/lounge', (req, res) => {
     res.sendFile('views/chat/chat.html', {
             root: __dirname + '/../'
         });
