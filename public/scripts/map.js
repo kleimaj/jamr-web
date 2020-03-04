@@ -176,7 +176,7 @@ function attachModals(marker, userObject) {
             <h2>${userObject.artistName}</h2>
             <p>Loves ${userObject.genres}</p>
             <p>Plays ${userObject.instruments}</p>
-            <a href="#">Chat</a>
+            <a class=${userObject.artistName} href=#>Chat</a>
             <img src=../images/unavailable.svg alt="online">
         </div>`
         // <div style='width:100px;height:150px;'>
@@ -284,6 +284,7 @@ function updateMap() {
 function degreesToRadians(degrees){
     return degrees * Math.PI / 180;
 }
+
 function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
     // The radius of the planet earth in meters
     let R = 6378137;
@@ -306,6 +307,7 @@ function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
 
     return distance/1609.344;
 }
+
 function updateDistance() {
     let newVal = $('#distance').val()
     $('#distance_result').html(newVal+' Miles');

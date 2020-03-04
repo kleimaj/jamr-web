@@ -16,12 +16,17 @@ socket.emit('newUser', name);
 // unqiue user chatroom
 socket.emit('join', {name});
 
+socket.on('userConnected', name => {
+    addMessage(`${name} connected`);
+});
+
 socket.on('chatMessage', (res) => {
     addMessage(`${res.name}: ${res.message}`);
 });
 
-socket.on('userConnected', name => {
-    addMessage(`${name} connected`);
+// New private message.
+socket.on('newMsg', (res) => {
+    addMessage(`${res.name}: ${res.message}`);
 });
 
 socket.on('userDisconnected', name => {

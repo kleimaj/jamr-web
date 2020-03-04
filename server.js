@@ -72,19 +72,26 @@ io.on('connection', (socket) => {
         console.log(data);
         console.log(data.name);
         socket.join(data.name); // We are using room of socket io
-        io.sockets.in(data.name).emit('new_msg', {msg: 'hello'});
+        io.sockets.in(data.name).emit('newMsg', {msg: 'hello'});
       });
 
+    
+
     socket.on('sendMessage', message => {
-
         console.log(message);
+        
+        if ('abc'){
 
-        // Sends data back to all clients, except the sender
-        socket.broadcast.emit('chatMessage',{
-            message: message, 
-            name: activeUsers[socket.id]
-        });
+            // Sends data back to all clients, except the sender
+            socket.broadcast.emit('chatMessage',{
+                message: message, 
+                name: activeUsers[socket.id]
+            });
 
+        }
+        
+
+        
     });
 
     socket.on('disconnect', () => {
