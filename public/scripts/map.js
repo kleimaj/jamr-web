@@ -48,7 +48,7 @@ let infowindow = new google.maps.InfoWindow({
             <h2>${thisArtist}</h2>
             <p>Loves ${thisGenre}</p>
             <p>Plays ${thisInstrument}</p>
-            <a href="/settings">Edit</a>
+            <a href="/profiles/${id}">View</a>
             <img src=../images/available.svg alt="online">
         </div>`
   });
@@ -79,6 +79,7 @@ function updateSuccess(json) {
     console.log('Updated Location in Mongo');
 }
 function getProfiles(position) {
+    console.log('here');
     document.querySelector('#status').innerHTML = '';
     const default_coords = {};
     default_coords.lat  = position.coords.latitude;
@@ -159,13 +160,13 @@ function onSuccess(json) {
     }
     console.log(users);
     // localStorage.setItem('_id', json._id);
-};
+}
 function onError(xhr, status, errorThrown) {
     alert("Sorry, there was a problem!");
     console.log("Error: " + errorThrown);
     console.log("Status: " + status);
     console.dir(xhr);
-};
+}
 
 function attachModals(marker, userObject) {
 
@@ -176,7 +177,7 @@ function attachModals(marker, userObject) {
             <h2>${userObject.artistName}</h2>
             <p>Loves ${userObject.genres}</p>
             <p>Plays ${userObject.instruments}</p>
-            <a href="#">Chat</a>
+            <a href="profiles/${userObject._id}">View</a>
             <img src=../images/unavailable.svg alt="online">
         </div>`
         // <div style='width:100px;height:150px;'>
