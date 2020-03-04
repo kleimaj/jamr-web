@@ -9,11 +9,13 @@ $("form").submit(function(event){
   
     // let bioData = $('#bio').val();
     // console.log(bioData);
+    // instruments: $('.instru').dropdown('get value', thisInstrument),
+        // genres: $('.genre').dropdown('get value', thisGenre),
   
-    let instrument = $('.instru').val();
+    let instrument = $('.instru').dropdown('get value');
     console.log(instrument);
   
-    let genre = $('.genre').val();
+    let genre = $('.genre').dropdown('get value');
     console.log(genre);
 
     let bio = $('.bio').val();
@@ -53,8 +55,6 @@ $("form").submit(function(event){
              // status codes are passed to the function
              error: onError
          });
- 
-    
 });
 
 function onSuccessProfileCreation(json) {
@@ -72,3 +72,6 @@ function onError(xhr, status, errorThrown) {
     console.log("Status: " + status);
     console.dir(xhr);
 };
+
+$('.genre').dropdown('set selected', ['']);
+$('.instru').dropdown('set selected',['']);

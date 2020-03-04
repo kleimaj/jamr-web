@@ -1,4 +1,4 @@
-const db = require('../models')
+const db = require('../models');
 
 const index = (req, res) => {
     db.Profile.find({}, (err, allProfiles) => {
@@ -8,17 +8,15 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    db.User.find({$and: [{username: req.body.username}, {password: req.body.password}]}, (err, foundUser) => {
-        if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
-        db.Profile.find({UserRef: foundUser}, (err, foundProfile) => {
-            if (err) return res.status(400).json({status: 400, error: 'Profile Not Found, please try again'});
-            if (foundProfile.length === 0) {
-                res.status(400).json({status: 400, error: "Profile not found in Database"});
-            }
-            else {
-                res.json(foundProfile);
-            }
-        });
+
+    db.Profile.find({_id: req.params.id}, (err, foundProfile) => {
+        if (err) return res.status(400).json({status: 400, error: 'Profile Not Found, please try again'});
+        if (foundProfile.length === 0) {
+            res.status(400).json({status: 400, error: "Profile not found in Database"});
+        }
+        else {
+            res.json(foundProfile);
+        }
     });
 }
 

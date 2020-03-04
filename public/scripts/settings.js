@@ -1,7 +1,7 @@
 let id = localStorage.getItem('_id');
 let thisArtist = localStorage.getItem('artistName');
-let thisInstrument = localStorage.getItem('instruments');
-let thisGenre = localStorage.getItem('genres');
+let thisInstrument = localStorage.getItem('instruments').split(',');
+let thisGenre = localStorage.getItem('genres').split(',');
 let thisBio = localStorage.getItem('bio');
 
 function setDefaultInputs () {
@@ -26,15 +26,19 @@ function setDefaultInputs () {
 }
 
 $(".update").submit(function(event){
+    // console.log($('.genre').val(),
+    // $('.instru').val());
     event.preventDefault();
+    // return;
     //   Ajax
+    console.log( $('.genre').dropdown('get value', thisInstrument))
     // id = "5e5af74d746d0ca6fe861ec9"
     let body = {
         // _id: id,
         artistName: $('.artistName').val(),
         bio: $('.bio').val(),
-        instruments: $('.instru').val(),
-        genres: $('.genre').val(),
+        instruments: $('.instru').dropdown('get value', thisInstrument),
+        genres: $('.genre').dropdown('get value', thisGenre),
         
     };
     localStorage.setItem('artistName', body.artistName);
@@ -106,3 +110,5 @@ function signOut(){
 setDefaultInputs();
 $('.delete').on('click',deleteProfile);
 $('.signout').on('click',signOut);
+$('.genre').dropdown('set selected', thisGenre);
+$('.instru').dropdown('set selected', thisInstrument);

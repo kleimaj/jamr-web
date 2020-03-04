@@ -7,8 +7,13 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Semantic -->
+    <!-- <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css"> -->
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="/styles/settings.css">
@@ -28,8 +33,6 @@
         </nav>
 
     </header>
-    
-
     
     <main>
   
@@ -52,8 +55,8 @@
                 </div>
 
                 <div class="form-group row">
-                  <select class=" instru custom-select mt-5">
-                    <option selected> Change your Instrument</option>
+                  <select class=" instru ui fluid dropdown mt-5" multiple>
+                    <option value=""> Change your Instrument</option>
                     <option value="Guitar">Guitar</option>
                     <option value="Piano">Piano</option>
                     <option value="Bass">Bass</option>
@@ -63,8 +66,8 @@
                 </div>
 
                 <div class="form-group row">
-                  <select multiple="multiple" class="genre custom-select mt-5">
-                    <option selected>Change Your Genre</option>
+                  <select class="genre ui fluid dropdown mt-5" type="checkbox" multiple>
+                    <option value="">Change Your Genre</option>
                     <option value="Rock">Rock</option>
                     <option value="Alternative">Alternative</option>
                     <option value="Folk">Folk</option>
@@ -77,6 +80,17 @@
                 <button class="btn btn-primary mb-5" type="submit">
                     Save Changes
                 </button>
+
+                <!-- <select name="skills" multiple="" class="ui fluid dropdown">
+                  <option value="">Skills</option>
+                  <option value="angular">Angular</option>
+                  <option value="css">CSS</option>
+                  <option value="ember">Ember</option>
+                  <option value="html">HTML</option>
+                  <option value="javascript">Javascript</option>
+                  <option value="meteor">Meteor</option>
+                  <option value="node">NodeJS</option>
+                </select> -->
                 
               </form>
               <button class="signout btn btn-primary">
@@ -101,6 +115,15 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!-- Semantic
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script> -->
+    <!-- <script src="../../semantic/dist/semantic.min.js"></script> -->
 
     <script src="/scripts/settings.js"></script>
     

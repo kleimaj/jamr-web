@@ -1,5 +1,4 @@
 const mongoose = require ('mongoose');
-
 const ProfileSchema = new mongoose.Schema({
     artistName: {
         required: true,
@@ -31,7 +30,7 @@ const ProfileSchema = new mongoose.Schema({
     },
     location: {
         type: [Number],
-    }
+    },
 });
 
 module.exports = mongoose.model('Profile',ProfileSchema);
