@@ -79,7 +79,7 @@ io.on('connection', (socket) => {
 
     socket.on('sendMessage', message => {
         console.log(message);
-        
+
         if ('abc'){
 
             // Sends data back to all clients, except the sender
@@ -89,6 +89,7 @@ io.on('connection', (socket) => {
             });
 
         }
+        
         
 
         

@@ -27,7 +27,7 @@ router.get('/createProfile', (req,res) => {
 
 
 router.get('/profiles/:id', (req,res) => {
-    res.sendFile('views/profiles/main.html', {
+    res.sendFile('views/profiles/profile.html', {
         root: __dirname + '/../'
     });
  });
