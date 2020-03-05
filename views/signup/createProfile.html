@@ -15,19 +15,20 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
  
      <!-- Main CSS -->
-     <link rel="stylesheet" href="/styles/main.css">
+     <link rel="stylesheet" href="/styles/createProfile.css">
     <title>Jamr</title>
 </head>
 <body>
     
-    <h1 class="text-center mt-5">
+  <div class="vanilla_container">
+    <h1 class="mt-5">
         Create your Profile
     </h1>
-
+  </div>
     <div class="container mt-5">
 
         <form class="needs-validation" novalidate>
-            <div class="form-row col-3">
+          <div class="col-md-3 loginSignUp">
               
                 <label for="validationCustom01">Artist Name</label>
                 <input type="text" class="form-control artistName" id="validationCustom01" value="" required>
@@ -36,13 +37,12 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Bio</label>
-                  <div class="col-sm-10">
-                    <textarea class="bio form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
+                  <label for="inputEmail3">Bio</label>
+                    <textarea class="bio form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
 
-                <select class=" instru ui fluid dropdown mt-5" multiple>
+                <label for="instrSelect">Instruments</label>
+                <select id="instrSelect" class=" instru ui fluid dropdown" multiple>
                   <option value="">Select Instruments</option>
                   <option value="Guitar">Guitar</option>
                   <option value="Piano">Piano</option>
@@ -51,7 +51,8 @@
                   <option value="Samples/DJ">Samples / DJ </option>
                 </select>
 
-                <select class="genre ui fluid dropdown mt-5" multiple>
+                <label for="genreSelect">Genres</label>
+                <select id="genreSelect" class="genre ui fluid dropdown" multiple>
                   <option value="">Select Your Genres</option>
                   <option value="Rock">Rock</option>
                   <option value="Alternative">Alternative</option>
@@ -63,7 +64,7 @@
                 </select>
 
                 <button 
-                class="btn btn-primary ml-5 mt-5 mb-5 submitBtn" 
+                class="btn ml-5 mt-5 mb-5 submitBtn" 
                 type="submit">
                   Submit
                 </button>
