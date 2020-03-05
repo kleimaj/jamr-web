@@ -1,0 +1,12 @@
+/* Custom font */
+@font-face{
+    font-family: 'Vice City Sans';
+    src: url('../fonts/ViceCitySans.otf'); /* IE9 Compat Modes */
+}
+#navBar{
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: "Vice City Sans";
+    color: black;
+    background: #c24e54;
+
+}

@@ -50,5 +50,11 @@ router.get('/settings', (req,res) => {
     });
 });
 
+router.get('/test', (req,res) => {
+    res.sendFile('views/profiles/test.html', {
+        root: __dirname + '/../'
+    });
+});
+
 
 module.exports = router;
