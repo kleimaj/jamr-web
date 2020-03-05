@@ -6,7 +6,7 @@ let infoWindows = [];
 let gFilter = [];
 let iFilter = [];
 let dFilter = [];
-map = new google.maps.Map(document.getElementById('map'), {
+let map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12,
     disableDefaultUI: true,
