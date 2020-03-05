@@ -39,6 +39,25 @@
     border: none;
 }
 
+.chatroom{
+ position: relative;
+ max-width: 50vw;
+}
+
+#send-container{
+  margin: 2rem 0 0 0;
+  position: absolute;
+  bottom: 100;
+  left: 25%;
+}
+
+#message-input{
+  border-radius: .5rem;
+  height: 2.5rem;
+  max-width: 80%;
+  padding: 1rem;
+  width: 25vw;
+}
   #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;

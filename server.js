@@ -11,9 +11,6 @@ let msg = 'socketTest';
 // Lounge room users
 const activeUsers = {};
 
-// Online users
-const onlineUsers = {};
-
 // Init Routes
 const routes = require('./routes'); // Routes Module
 
@@ -64,18 +61,18 @@ io.on('connection', (socket) => {
     // 2: a callback to "respond" with data to the cilent.
     // Simply put, this method recieves data sent from every connection.
 
-    socket.on('newUser', name => {
-        activeUsers[socket.id] = name;
-        // users[name] = socket.id;
-        console.log(`Users: ${users}`);
-        // Sends data back to all clients, except the sender
-        socket.broadcast.emit('userConnected', name);
-    });
+    // socket.on('newUser', name => {
+    //     activeUsers[socket.id] = name;
+    //     // users[name] = socket.id;
+    //     console.log(`Users: ${users}`);
+    //     // Sends data back to all clients, except the sender
+    //     socket.broadcast.emit('userConnected', name);
+    // });
 
     socket.on('onlineUser', name => {
         console.log(name);
-        
-        // socket.broadcast.emit('userConnected', name);
+        activeUsers[socket.id] = name;
+        socket.broadcast.emit('userConnected', name);
     });
 
     socket.on('loggedOn', id => {
