@@ -107,8 +107,22 @@ router.post('/upload', (req, res) => {
         }
 
         else {
-            console.log(req.file);
-            res.send('test');
+
+            if (req.file === undefined){
+
+                res.render('index', {
+                    msg: 'Error: No file selected'
+                });
+
+            }
+
+            else {
+                res.render('index', {
+                    msg: 'File uploaded',
+                    file: `uploads/${req.file.filename}`
+                });
+            }
+            
         }
     });
 });

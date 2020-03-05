@@ -7,9 +7,9 @@ const db = require('./models');
 const PORT = process.env.PORT || 4000;
 
 // Multer
-const multer = require('multer');
-const ejs = require('ejs');
-const path = require('path');
+// const multer = require('multer');
+// const ejs = require('ejs');
+// const path = require('path');
 
 
 let msg = 'socketTest';
@@ -33,17 +33,17 @@ const app = express();
 
 
 
-const storage = multer.diskStorage({
-    destination: './public/uploads/',
-    filename: function (req, file, callback) {
-        callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: './public/uploads/',
+//     filename: function (req, file, callback) {
+//         callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+//     }
+// });
 
 // Init upload
-const upload = multer({
-    storage: storage
-}).single('img');
+// const upload = multer({
+//     storage: storage
+// }).single('img');
 
 // ------------------- MIDDLEWARE
 
