@@ -72,6 +72,12 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('userConnected', name);
     });
 
+    socket.on('onlineUser', name => {
+        console.log(name);
+        
+        // socket.broadcast.emit('userConnected', name);
+    });
+
     socket.on('loggedOn', id => {
         onlineUsers[socket.id] = id;
       

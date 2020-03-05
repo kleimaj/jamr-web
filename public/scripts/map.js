@@ -1,15 +1,4 @@
 const default_coords = {lat: 37.791034, lng: -122.401605};
-<<<<<<< HEAD
-const userId = document.getElementById('id');
-
- // Socket channels
- const socket = io.connect('http://localhost:4000');
- console.log(socket);
-
-// 37.791034, -122.401605
-// {lat: 37.78, lng: -122.44};
-=======
->>>>>>> submaster
 let myCoords = {};
 let users = [];
 let markers = [];
@@ -17,18 +6,6 @@ let infoWindows = [];
 let gFilter = [];
 let iFilter = [];
 let dFilter = [];
-<<<<<<< HEAD
-
-// Local storage
-let id = localStorage.getItem('_id');
-let thisArtist = localStorage.getItem('artistName');
-let thisInstrument = localStorage.getItem('instruments');
-let thisGenre = localStorage.getItem('genres');
-let thisBio = localStorage.getItem('bio');
-
-
-=======
->>>>>>> submaster
 let map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12,
@@ -53,22 +30,12 @@ const iconOther = {
     url:'images/musicianOther.png',
     scaledSize: new google.maps.Size(30, 30)
 }
-<<<<<<< HEAD
-// let userMarker = new google.maps.Marker({
-//     position: default_coords, 
-//     map: map,
-//     icon: icon
-// });
-
-
-=======
 
 let id = localStorage.getItem('_id');
 let thisArtist = localStorage.getItem('artistName');
 let thisInstrument = localStorage.getItem('instruments');
 let thisGenre = localStorage.getItem('genres');
 let thisBio = localStorage.getItem('bio');
->>>>>>> submaster
 let infowindow = new google.maps.InfoWindow({
     content: 
     `<div class=viewContainer>
