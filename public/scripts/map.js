@@ -1,6 +1,4 @@
 const default_coords = {lat: 37.791034, lng: -122.401605};
-// 37.791034, -122.401605
-// {lat: 37.78, lng: -122.44};
 let myCoords = {};
 let users = [];
 let markers = [];
@@ -32,11 +30,7 @@ const iconOther = {
     url:'images/musicianOther.png',
     scaledSize: new google.maps.Size(30, 30)
 }
-// let userMarker = new google.maps.Marker({
-//     position: default_coords, 
-//     map: map,
-//     icon: icon
-// });
+
 let id = localStorage.getItem('_id');
 let thisArtist = localStorage.getItem('artistName');
 let thisInstrument = localStorage.getItem('instruments');
@@ -180,7 +174,6 @@ function attachModals(marker, userObject) {
             <a href="profiles/${userObject._id}">View</a>
             <img src=../images/unavailable.svg alt="online">
         </div>`
-        // <div style='width:100px;height:150px;'>
         ,
         maxWidth: 400
       });
