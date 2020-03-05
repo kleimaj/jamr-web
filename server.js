@@ -5,6 +5,13 @@ const bodyParser = require('body-parser');
 const db = require('./models');
 
 const PORT = process.env.PORT || 4000;
+
+// Multer
+const multer = require('multer');
+const ejs = require('ejs');
+const path = require('path');
+
+
 let msg = 'socketTest';
 // Socket.io users
 
@@ -20,13 +27,35 @@ const routes = require('./routes'); // Routes Module
 // Init server
 const app = express();
 
+
+
+
+
+
+
+const storage = multer.diskStorage({
+    destination: './public/uploads/',
+    filename: function (req, file, callback) {
+        callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+// Init upload
+const upload = multer({
+    storage: storage
+}).single('img');
+
 // ------------------- MIDDLEWARE
+
+app.set('view engine', 'ejs');
 
 // Serve Public Assets
 app.use(express.static(__dirname + '/public'));
 
 // Init BodyParser
 app.use(bodyParser.json());
+
+
 
 // ------------------- VIEW ROUTES
 
