@@ -1,4 +1,10 @@
 const default_coords = {lat: 37.791034, lng: -122.401605};
+const userId = document.getElementById('id');
+
+ // Socket channels
+ const socket = io.connect('http://localhost:4000');
+ console.log(socket);
+
 // 37.791034, -122.401605
 // {lat: 37.78, lng: -122.44};
 let myCoords = {};
@@ -8,7 +14,16 @@ let infoWindows = [];
 let gFilter = [];
 let iFilter = [];
 let dFilter = [];
-map = new google.maps.Map(document.getElementById('map'), {
+
+// Local storage
+let id = localStorage.getItem('_id');
+let thisArtist = localStorage.getItem('artistName');
+let thisInstrument = localStorage.getItem('instruments');
+let thisGenre = localStorage.getItem('genres');
+let thisBio = localStorage.getItem('bio');
+
+
+let map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12,
     disableDefaultUI: true,
@@ -37,11 +52,8 @@ const iconOther = {
 //     map: map,
 //     icon: icon
 // });
-let id = localStorage.getItem('_id');
-let thisArtist = localStorage.getItem('artistName');
-let thisInstrument = localStorage.getItem('instruments');
-let thisGenre = localStorage.getItem('genres');
-let thisBio = localStorage.getItem('bio');
+
+
 let infowindow = new google.maps.InfoWindow({
     content: 
     `<div class=viewContainer>
@@ -49,9 +61,11 @@ let infowindow = new google.maps.InfoWindow({
             <p>Loves ${thisGenre}</p>
             <p>Plays ${thisInstrument}</p>
             <a href="/profiles/${id}">View</a>
-            <img src=../images/available.svg alt="online">
+            <img id='id' src=../images/unavailable.svg alt="online">
         </div>`
   });
+
+
 function updatePosition(myCoords) {
     let body = JSON.stringify({location: [myCoords.lat, myCoords.lng]});
     $.ajax({
@@ -160,7 +174,18 @@ function onSuccess(json) {
     }
     console.log(users);
     // localStorage.setItem('_id', json._id);
+
+   
+        const viewContainer = document.querySelector('.viewContainer');
+        console.log('page is fully loaded');
+        socket.emit('loggedOn', id);
+
+        socket.on('online', (msg) => {
+            console.log(msg);
+            turnON();
+        });
 }
+
 function onError(xhr, status, errorThrown) {
     alert("Sorry, there was a problem!");
     console.log("Error: " + errorThrown);
@@ -168,20 +193,17 @@ function onError(xhr, status, errorThrown) {
     console.dir(xhr);
 }
 
+// Everyone else on the map.
 function attachModals(marker, userObject) {
 
     console.log(userObject);
     let infowindow = new google.maps.InfoWindow({
         content: 
-        `<div class=viewContainer>
+        `<div class=viewContainer ${userObject._id}>
             <h2>${userObject.artistName}</h2>
             <p>Loves ${userObject.genres}</p>
             <p>Plays ${userObject.instruments}</p>
-<<<<<<< HEAD
-            <a class=${userObject.artistName} href=#>Chat</a>
-=======
             <a href="profiles/${userObject._id}">View</a>
->>>>>>> 69aea2efa153f102be36c32e9ec8a730e4408294
             <img src=../images/unavailable.svg alt="online">
         </div>`
         // <div style='width:100px;height:150px;'>
@@ -335,3 +357,13 @@ $('.genre_filter').on('change',updateMap);
 $('#distance').on('change',updateMap);
 document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
 // .appendChild(`${radar}`);
+
+
+
+
+function turnON () { 
+    console.log('Turn on Launch...');
+    userId.src="../images/available.svg";
+};
+
+

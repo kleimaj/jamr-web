@@ -5,10 +5,14 @@ const bodyParser = require('body-parser');
 const db = require('./models');
 
 const PORT = process.env.PORT || 4000;
+let msg = 'socketTest';
+// Socket.io users
 
-// Socket.io user ids.
+// Lounge room users
 const activeUsers = {};
-const users = {};
+
+// Online users
+const onlineUsers = {};
 
 // Init Routes
 const routes = require('./routes'); // Routes Module
@@ -62,10 +66,18 @@ io.on('connection', (socket) => {
 
     socket.on('newUser', name => {
         activeUsers[socket.id] = name;
-        users[name] = socket.id;
+        // users[name] = socket.id;
         console.log(`Users: ${users}`);
         // Sends data back to all clients, except the sender
         socket.broadcast.emit('userConnected', name);
+    });
+
+    socket.on('loggedOn', id => {
+        onlineUsers[socket.id] = id;
+      
+        console.log(`Online: ${onlineUsers}`);
+        // Sends data back to all clients, except the sender
+        socket.broadcast.emit('online', msg);
     });
 
     socket.on('join', function (data) {
@@ -80,7 +92,7 @@ io.on('connection', (socket) => {
     socket.on('sendMessage', message => {
         console.log(message);
 
-        if ('abc'){
+        if (messade === 'abc'){
 
             // Sends data back to all clients, except the sender
             socket.broadcast.emit('chatMessage',{
