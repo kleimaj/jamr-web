@@ -46,9 +46,11 @@
 
 #send-container{
   margin: 2rem 0 0 0;
-  position: absolute;
-  bottom: 100;
-  left: 25%;
+  /* position: absolute;
+  bottom: 100; */
+  /* left: 25%; */
+  position: fixed;
+  bottom: 0;
 }
 
 #message-input{

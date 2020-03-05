@@ -39,7 +39,7 @@ res.sendFile('views/map/map.html', {
 });
 
 router.get('/lounge', (req, res) => {
-    res.sendFile('views/chat/lounge.html', {
+    res.sendFile('views/lounge/lounge.html', {
             root: __dirname + '/../'
         });
     });

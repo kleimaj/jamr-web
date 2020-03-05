@@ -11,8 +11,12 @@ console.log(socket);
 const name = localStorage.getItem('artistName');
 
 // Online container
+const messageForm = document.getElementById('send-container');
+const messageInput =document.getElementById('message-input');
+const chatroom = document.querySelector('.chatroom');
 const onlineContainer = document.querySelector('#sidebar-wrapper');
 connection(`Welcome, ${name}`);
+
 
 // Socket channels
 socket.emit('onlineUser', name);
@@ -25,22 +29,26 @@ socket.on('userDisconnected', name => {
   connection(`${name} left`);
 });
 
+socket.on('chatMessage', (res) => {
+  addMessage(`${res.name}: ${res.message}`);
+});
+
+
 // Event Listeners
-// messageForm.addEventListener('submit', event => {
+messageForm.addEventListener('submit', event => {
 
-//   event.preventDefault();
-//   let message = messageInput.value;
+  event.preventDefault();
+  let message = messageInput.value;
 
-//   addMessage(`You sent: ${message}`);
+  // addMessage(`You sent: ${message}`);
 
-//   // Sents data back to our server.
-//   // socket.emit('sendMessage', message);
-//   socket.emit('sendMessage', message);
+  // Sents data back to our server.
+  socket.emit('sendMessage', message);
 
-//   // Clears input field after being sent.
-//   messageInput.value = null;
+  // Clears input field after being sent.
+  messageInput.value = null;
 
-// });
+});
 
 function connection(name){ 
   let connected = `
@@ -54,7 +62,6 @@ function connection(name){
 function addMessage(message){ 
   let messageElement = `<div>${message}</div>`
 
-  messageContainer.insertAdjacentHTML('beforeend', messageElement);
+  chatroom.insertAdjacentHTML('beforeend', messageElement);
 }
 
-/* <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a> */

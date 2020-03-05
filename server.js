@@ -95,19 +95,12 @@ io.on('connection', (socket) => {
     socket.on('sendMessage', message => {
         console.log(message);
 
-        if (messade === 'abc'){
-
             // Sends data back to all clients, except the sender
             socket.broadcast.emit('chatMessage',{
                 message: message, 
                 name: activeUsers[socket.id]
             });
-
-        }
-        
-        
-
-        
+         
     });
 
     socket.on('disconnect', () => {
