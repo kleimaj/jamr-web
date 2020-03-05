@@ -7,7 +7,6 @@ $(".login").submit(function(event){
     console.log(body);
         //   Ajax
         $.ajax({
-  
             // What kind of request
             method: "GET",
         
