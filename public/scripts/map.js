@@ -75,6 +75,7 @@ function updateSuccess(json) {
 function getProfiles(position) {
     console.log('here');
     document.querySelector('#status').innerHTML = '';
+    document.querySelector('#status').classList.add('hidden');
     const default_coords = {};
     default_coords.lat  = position.coords.latitude;
     default_coords.lng = position.coords.longitude;
@@ -129,7 +130,7 @@ function getProfiles(position) {
 
 function onSuccess(json) {
     // console.log("Successfully retrieved profiles...");
-    $('.filters').css('display','block'); 
+    // $('.filters').css('display','block'); 
     for (let user of json) {
         // console.log(user);
         if (user._id != id) {
@@ -316,9 +317,14 @@ function updateDistance() {
 }
 // getProfiles();
 $('#map').css("display", "none");
+// $('.filters').css('display','none');
 $('.show').on('click', makeMap());
+$('#map_filters').on('click',() => {
+    console.log('here');
+    $('.filters').toggleClass('hidden');
+});
 $('.instru_filter').on('change',updateMap);
 $('.genre_filter').on('change',updateMap);
 $('#distance').on('change',updateMap);
-document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
+// document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
 // .appendChild(`${radar}`);
