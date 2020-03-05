@@ -9,14 +9,14 @@ body{
 
 }
 
-h1 {
+/* h1 {
     font-size: 4rem;
-    /* color: rgba(19, 98, 144, 0.657); */
-    color: white;
+    /* color: rgba(19, 98, 144, 0.657); 
+    color: black;
     margin-top: 8rem;
     text-align: center;
 
-}
+} */
 
 .navbar {
     background-color: #CB686E;
@@ -71,8 +71,8 @@ h1 {
     width: 60px;
   height: 60px;
 }
-#distance {
-    /* display: block; */
+#status {
+    font-size: 30px;
 }
 #distance_label {
     color: #495057;
@@ -133,11 +133,15 @@ h1 {
     .mobile_wrapper {
         position: relative;
         overflow: hidden;
+        height: 100vh;
     }
     .filters {
-        top: 510px;
+        top: 520px;
     }
     .map_filters {
         top: 450px;
+    }
+    .buttonUp {
+        top: 420px;
     }
   }

@@ -73,9 +73,9 @@ function updateSuccess(json) {
     console.log('Updated Location in Mongo');
 }
 function getProfiles(position) {
-    console.log('here');
     document.querySelector('#status').innerHTML = '';
     document.querySelector('#status').classList.add('hidden');
+    $('.map_filters').removeClass('hidden');
     const default_coords = {};
     default_coords.lat  = position.coords.latitude;
     default_coords.lng = position.coords.longitude;
@@ -324,8 +324,10 @@ $('.map_filters').on('click',() => {
     $('.filters').toggleClass('hidden');
     $('.map_filters').toggleClass('buttonUp')
 });
+$('.map_filters').addClass('hidden');
 $('.instru_filter').on('change',updateMap);
 $('.genre_filter').on('change',updateMap);
-$('#distance').on('change',updateMap);
+$('#distance').on('change',updateMap); // Firefox
+$('#distance').on('input',updateMap); // Chrome and IE
 // document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
 // .appendChild(`${radar}`);
