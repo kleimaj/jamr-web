@@ -319,9 +319,10 @@ function updateDistance() {
 $('#map').css("display", "none");
 // $('.filters').css('display','none');
 $('.show').on('click', makeMap());
-$('#map_filters').on('click',() => {
+$('.map_filters').on('click',() => {
     console.log('here');
     $('.filters').toggleClass('hidden');
+    $('.map_filters').toggleClass('buttonUp')
 });
 $('.instru_filter').on('change',updateMap);
 $('.genre_filter').on('change',updateMap);
