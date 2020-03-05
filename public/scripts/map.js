@@ -10,9 +10,10 @@ let map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12,
     disableDefaultUI: true,
-    styles: [
+    hide: [
         {
           featureType: 'poi.business',
+          elementType: 'labels.text.fill',
           stylers: [{visibility: 'off'}]
         },
         {
@@ -20,6 +21,121 @@ let map = new google.maps.Map(document.getElementById('map'), {
           elementType: 'labels.icon',
           stylers: [{visibility: 'off'}]
         }
+      ],
+    styles: [
+        // {
+        //   featureType: 'poi.business',
+        //   stylers: [{visibility: 'off'}]
+        // },
+        // {
+        //   featureType: 'transit',
+        //   elementType: 'labels.icon',
+        //   stylers: [{visibility: 'off'}]
+        // }
+        // {
+        //     featureType: 'administrative.locality',
+        //     elementType: 'labels.text.fill',
+        //     stylers: [{visibility: "off"}]
+        //   },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.stroke',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.icon',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'geometry',
+            stylers: [{color: '#CCCA7C'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'geometry',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'labels.icon',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{color: '#54A2CC'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.stroke',
+            stylers: [{visibility: "off"}]
+          },
+        //   {
+        //     "featureType": "road.arterial",
+        //     "elementType": "geometry",
+        //     "stylers": [
+        //       { "color": "#CCFFFF" }
+        //     ]
+        //   },
+          {
+            featureType: "landscape",
+            elementType: "labels",
+            stylers: [
+              { "visibility": "off" }
+            ]
+          }
       ]
 });
 const icon = {
@@ -30,6 +146,7 @@ const iconOther = {
     url:'images/musicianOther.png',
     scaledSize: new google.maps.Size(30, 30)
 }
+
 
 let id = localStorage.getItem('_id');
 let thisArtist = localStorage.getItem('artistName');

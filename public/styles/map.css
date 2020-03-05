@@ -103,14 +103,19 @@ body{
 
 .viewContainer {
     line-height: .5em;
-    width: 100px;
-    height: 70px;
+    width: auto;
+    min-width: 100px;
+    max-width: 400px;
+    /* height: 70px; */
+    height: auto;
+    max-height: 100px;
     margin: 0;
 }
 .viewContainer p {
-    line-height: 1em;
+    line-height: 1.5em;
     margin: 2px 0;
     display: block;
+    font-family: 'Raleway';
     font-size: 1em;
 }
 .viewContainer a {
@@ -120,6 +125,7 @@ body{
 }
 .viewContainer h2 {
     font-size: 1.25em;
+    font-family: 'Vice City Sans';
     text-align: center;
     margin: 0;
 }
