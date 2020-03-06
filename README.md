@@ -78,6 +78,20 @@ The type logo was created with a modified musical take on the Helvetica typeface
 
 A concept logo was also created to brand the application as a tool for finding musicicans
 
-
+![MoodBoard1](documentation/screenshots/logo2.png)
 
 <hr>
+
+## Mid/Hi-fi Wireframes
+
+![MoodBoard1](documentation/screenshots/midwire.png)
+
+## Interaction Design
+
+![MoodBoard1](documentation/screenshots/animation.png)
+
+https://codepen.io/kleimaj/pen/dyoRyPK
+
+## Full Implementation
+
+![MoodBoard1](documentation/screenshots/finalmap.png)
