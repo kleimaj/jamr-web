@@ -27,6 +27,10 @@
     font-family: "Vice City Sans";
 }
 
+#brandText{
+  color: #fff;
+}
+
 .homeLink{
     color: #fff;
 }
