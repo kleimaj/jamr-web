@@ -475,23 +475,7 @@ $('.map_filters').on('click',() => {
 $('.map_filters').addClass('hidden');
 $('.instru_filter').on('change',updateMap);
 $('.genre_filter').on('change',updateMap);
-<<<<<<< HEAD
-$('#distance').on('change',updateMap);
-document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
-// .appendChild(`${radar}`);
-
-
-
-
-function turnON () { 
-    console.log('Turn on Launch...');
-    userId.src="../images/available.svg";
-};
-
-
-=======
 $('#distance').on('change',updateMap); // Firefox
 $('#distance').on('input',updateMap); // Chrome and IE
 // document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
 // .appendChild(`${radar}`);
->>>>>>> submaster
