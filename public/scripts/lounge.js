@@ -40,7 +40,7 @@ messageForm.addEventListener('submit', event => {
   event.preventDefault();
   let message = messageInput.value;
 
-  // addMessage(`You sent: ${message}`);
+  addMessage(`You sent: ${message}`);
 
   // Sents data back to our server.
   socket.emit('sendMessage', message);
