@@ -1,0 +1,86 @@
+@font-face{
+    font-family: 'Vice City Sans';
+    src: url('../fonts/ViceCitySans.otf'); /* IE9 Compat Modes */
+}
+body{
+    background: #CB686E;  /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);   */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #C4E0E5, #4CA1AF); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+    font-family: 'Roboto Mono';
+
+}
+
+/* h1 {
+    font-size: 4rem;
+    color: rgba(19, 98, 144, 0.657);
+    margin-top: 8rem;
+    text-align: center;
+
+} */
+.vanilla_container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#jamr {
+    margin: 0 auto;
+    width: 300px;
+    padding-right: 25px;
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+}
+#logo {
+    margin: 0 auto;
+    margin-top: -130px;
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    width: 100px;
+}
+
+#map {
+    height: 500px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.filters {
+    display: none;
+}
+
+.form-row, .loginSignUp{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+
+.signupBtn{
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    background-color: white;
+    font-family: "Vice City Sans";
+    font-size: 40px;
+    text-shadow: 0 2px 4px #a1a1a1;
+    color: #c24e54;
+    width: 200px;
+    border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+@media only screen and (min-width: 600px) {
+    #jamr {
+        width: 400px;
+        margin-top: -100px;
+    }
+    #logo{
+    width: 160px;
+    margin-top: -150px;
+    }
+    .form-row, .loginSignUp{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+  }

@@ -6,57 +6,61 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/login.css">
     
-    <title>Musician Seek</title>
+    <title>Jamr</title>
 </head>
 <body>
 
-    <h1>Musician Seek</h1>
+    <!-- <h1>Jamr</h1> -->
+    <div class="vanilla_container">
+      <img id="jamr" src="images/jamr.svg" alt="title">
+    </div>
+
     <div class="container mt-5">
     <!-- Form -->
-        <form class = "signup" class="needs-validation" novalidate>
+        <form class ="signup needs-validation" novalidate>
        
-        <div class="row">
+          <div class="row">
 
-          <div class="col-md-6 mb-3">
-            
-            <label for="validationTooltipUsername">
-                User Name
-            </label>
+            <div class="col-md-3 mb-3 loginSignUp">
+              
+              <label for="validationTooltipUsername">Username
+              </label>
 
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                    <!-- @ -->
-                </span>
+              <div class="input-group">
+                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" style="border-radius:13px">
+                <div class="invalid-tooltip">
+                  This username is already taken.
+                </div>
               </div>
-              <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-              <div class="invalid-tooltip">
-                This username is already taken.
+
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              
+              <div class="signupBtn">
+                <button class="btn" type="submit">
+                  Sign up
+                </button>
               </div>
             </div>
-
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            
-            <button class="btn btn-primary" type="submit">Sign up</button>
-           
+          </div>
+          
         </form>
         
-        </div>
     </div>
     
-</div>
     
     
+     
     <!-- Jquery -->
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"

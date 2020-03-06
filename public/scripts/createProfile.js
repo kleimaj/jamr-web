@@ -7,20 +7,31 @@ $("form").submit(function(event){
     let artist = $('.artistName').val();
     console.log(artist);
   
-    let bioData = $('#bio').val();
-    console.log(bioData);
+    // let bioData = $('#bio').val();
+    // console.log(bioData);
+    // instruments: $('.instru').dropdown('get value', thisInstrument),
+        // genres: $('.genre').dropdown('get value', thisGenre),
   
-    let instrument = $('.instru').val();
+    let instrument = $('.instru').dropdown('get value');
     console.log(instrument);
   
-    let genre = $('.genre').val();
+    let genre = $('.genre').dropdown('get value');
     console.log(genre);
+
+    let bio = $('.bio').val();
+    console.log(bio);
+
+    localStorage.setItem('artistName', artist);
+    localStorage.setItem('instruments', instrument);
+    localStorage.setItem('genres', genre);
+    localStorage.setItem('bio', bio);
   
     let body = JSON.stringify({
+        _id: `${id}`,
         artistName:`${artist}`, 
         genres:`${genre}`,
         instruments:`${instrument}`,
-        bio:`${bioData}` ,
+        bio:`${bio}` ,
         UserRef: `${localStorage.getItem('_id')}`
       });
          $.ajax({
@@ -44,13 +55,12 @@ $("form").submit(function(event){
              // status codes are passed to the function
              error: onError
          });
- 
-    
 });
 
 function onSuccessProfileCreation(json) {
     console.log("Successfully created Profile..."); 
     console.log(json);
+    window.location.pathname = '/map';
     // localStorage.setItem('_id', json._id);
     // window.location.pathname = '/createProfile';
     // console.log(json);
@@ -62,3 +72,6 @@ function onError(xhr, status, errorThrown) {
     console.log("Status: " + status);
     console.dir(xhr);
 };
+
+$('.genre').dropdown('set selected', ['']);
+$('.instru').dropdown('set selected',['']);

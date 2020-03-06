@@ -1,5 +1,4 @@
 const mongoose = require ('mongoose');
-
 const ProfileSchema = new mongoose.Schema({
     artistName: {
         required: true,
@@ -14,7 +13,7 @@ const ProfileSchema = new mongoose.Schema({
     instruments: {
         type: [String],
         min: 0,
-        max: 3
+        max: 3,
     },
     genres: {
         type: [String],
@@ -30,10 +29,8 @@ const ProfileSchema = new mongoose.Schema({
         type: String
     },
     location: {
-        type: [String],
-        min: 2,
-        max: 2,
-    }
+        type: [Number],
+    },
 });
 
 module.exports = mongoose.model('Profile',ProfileSchema);
