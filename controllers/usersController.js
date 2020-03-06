@@ -18,8 +18,12 @@ const login = (req, res) => {
 
 const show = (req, res) => {
     let body = JSON.parse(req.params.id);
+    console.log(body);
     db.User.find(body, (err, foundUser) => {
         if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
+        if(foundUser.length==0) {
+            return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
+        }
         const userRef = mongoose.Types.ObjectId(foundUser[0]._id);
         db.Profile.find({UserRef: userRef}, (err, foundProfile) => {
             if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});

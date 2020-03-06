@@ -54,53 +54,23 @@ const io = require("socket.io")(server);
 
 // Listens for every new connection.
 io.on('connection', (socket) => {
-    console.log('New user connected');
-
+   
     // socket.on, takes two parameters
     // 1: a variable to be used in the frontend JavaScript file.
     // 2: a callback to "respond" with data to the cilent.
     // Simply put, this method recieves data sent from every connection.
 
-    // socket.on('newUser', name => {
-    //     activeUsers[socket.id] = name;
-    //     // users[name] = socket.id;
-    //     console.log(`Users: ${users}`);
-    //     // Sends data back to all clients, except the sender
-    //     socket.broadcast.emit('userConnected', name);
-    // });
-
     socket.on('onlineUser', name => {
-        console.log(name);
         activeUsers[socket.id] = name;
+        // Sends data back to all clients, except the sender
         socket.broadcast.emit('userConnected', name);
     });
 
-    socket.on('loggedOn', id => {
-        onlineUsers[socket.id] = id;
-      
-        console.log(`Online: ${onlineUsers}`);
-        // Sends data back to all clients, except the sender
-        socket.broadcast.emit('online', msg);
-    });
-
-    socket.on('join', function (data) {
-        console.log(data);
-        console.log(data.name);
-        socket.join(data.name); // We are using room of socket io
-        io.sockets.in(data.name).emit('newMsg', {msg: 'hello'});
-      });
-
-    
-
     socket.on('sendMessage', message => {
-        console.log(message);
-
-            // Sends data back to all clients, except the sender
             socket.broadcast.emit('chatMessage',{
                 message: message, 
                 name: activeUsers[socket.id]
             });
-         
     });
 
     socket.on('disconnect', () => {
