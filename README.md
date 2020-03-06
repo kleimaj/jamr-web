@@ -55,6 +55,23 @@ The way to calculate the distance between two geographical coordinates was chall
 
 <hr>
 
+##  Realtime, bi-directional communication with Socket.io
+
+In order to achieve our chat feature we leveraged the popular 
+JavaScript Socket.io library. This allowed us to have seamless 
+event-driven data on the server and cilent side. 
+
+<hr>
+Server Side
+
+![serversocket](documentation/screenshots/socketsServer.jpg)
+
+Client Side
+
+![serversocket](documentation/screenshots/socketsClient.jpg)
+
+<hr>
+
 ## The UI and Branding
 
 The creative direction of the application ui stemmed from two separate ideas encapsulated in these mood boards.
