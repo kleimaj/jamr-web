@@ -15,6 +15,7 @@ label {
     /* margin: 10px 0; */
     margin-bottom: -10px;
 }
+
 h1 {
     font-family: 'Vice City Sans';
     font-size: 3rem;    
@@ -101,6 +102,9 @@ h1 {
     font-family: 'Raleway';
     font-weight: 500;
     font-size: 20px;
+}
+.media::placeholder {
+    color: #dddddd;
 }
 @media only screen and (min-width: 750px) {
     #jamr {

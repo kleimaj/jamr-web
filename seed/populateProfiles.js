@@ -1,8 +1,8 @@
 module.exports = [
     {
-        artistName: 'Jacob',
-        instruments: ['Bass'],
-        genres: ['Jazz'],
+        artistName: 'Jessica',
+        instruments: ['Guitar'],
+        genres: ['Funk'],
         location: [37.805408, -122.436301],
     },
     {
@@ -17,6 +17,19 @@ module.exports = [
         genres: ['Rock'],
         location: [37.78,-122.44],
     },
+    {
+        artistName: 'Lia',
+        instruments: ['Violin'],
+        genres: ['Classical'],
+        location: [37.775504, -122.421955]
+    },
+    {
+        artistName: 'Pimp Juice',
+        instruments: ['Panini'],
+        genres: ['Gangsta Rap'],
+        bio: 'Check out my new single! https://youtu.be/oHg5SJYRHA0',
+        location :[37.826485, -122.422536]
+    },  
     {
         artistName: 'James',
         instruments: ['Guitar'],
