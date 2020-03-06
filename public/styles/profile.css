@@ -1,0 +1,167 @@
+@font-face{
+    font-family: 'Vice City Sans';
+    src: url('../fonts/ViceCitySans.otf'); /* IE9 Compat Modes */
+}
+body{
+    background: #ffffff;  
+    font-family: 'Vice City Sans';
+    /* overflow: hidden; */
+
+}
+h2 {
+    font-size: 50px;
+    margin-top: 20px;
+}
+ul{
+ font-family: 'Raleway';
+ font-size: 24px;
+ /* border-radius: 13px;
+ box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+ border: solid 1px #979797; */
+ /* height: 60px; */
+ padding: 0 35px;
+ max-width: 200px;
+ max-height: 200px;
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+label {
+    margin-top: 100px;
+    font-size: 30px;
+    margin-left: 50px;
+
+}
+p{
+    font-size: 30px;
+}
+.flex {
+    max-height: 120px;
+    margin: 25px;
+}
+.navbar {
+    background-color: #CB686E;
+    color: white;
+}
+.navbar a {
+    color: white;
+}
+#jamr {
+    color: white;
+    filter: drop-shadow( 2px 2px 1px rgba(0, 0, 0, .7));
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+}
+#profile_pic {
+    border-radius: 50%;
+    padding: 25px;
+}
+#settings {
+    color: white;
+    text-shadow: 0 2px 4px #7d2328;
+
+}
+#lounge {
+    color: white;
+    text-shadow: 0 2px 4px #7d2328;
+
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.bio {
+    font-family: 'Raleway';
+    border-radius: 13px;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); */
+    border: solid 1px #979797;
+    height: 60px;
+    padding: 15px;
+    min-width: 200px;
+    max-width: 300px;
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#distance_result {
+    color: #495057;
+    display: block;
+    position: relative;
+    left: 200px;
+}
+.hidden {
+    display: none;
+}
+.form-row, .loginSignUp{
+    margin: 0 auto;
+}
+.form-control {
+    font-family: 'Raleway';
+}
+.filters {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 550px;
+    width: 320px;
+}
+.signupBtn{
+    display: flex;
+    justify-content: center;
+}
+.comments {
+    display: flex;
+    align-items: left;
+    justify-content: space-around;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+.comment {
+    margin: 25px;
+    min-width: 100px;
+    border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border: solid 1px #979797;
+    padding: 10px 35px;
+
+}
+.comment p {
+    font-family: 'Raleway';
+    font-size: 24px;
+}
+.btn {
+    background-color: white;
+    font-family: "Vice City Sans";
+    font-size: 20px;
+    text-shadow: 0 2px 4px #a1a1a1;
+    color: #c24e54;
+    width: 200px;
+    border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+@media only screen and (min-width: 600px) {
+    .bio_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .bio {
+        min-height: 120px;
+        margin: 20px;
+    }
+    .comments {
+        flex-direction: row;
+    }
+    ul {
+        margin: 20px;
+        min-height: 120px;
+    }
+    p {
+        max-height: 50px;
+    }
+  }

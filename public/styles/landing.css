@@ -69,35 +69,6 @@ body{
     width: 200px;
     border-radius: 13px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    
-}
-
-.viewContainer {
-    line-height: .5em;
-    width: 100px;
-    height: 70px;
-    margin: 0;
-}
-.viewContainer p {
-    line-height: 1em;
-    margin: 2px 0;
-    display: block;
-    font-size: 1em;
-}
-.viewContainer a {
-    display: block;
-    margin: 6px 0;
-    /* line-height: 2em; */
-}
-.viewContainer h2 {
-    font-size: 1.25em;
-    text-align: center;
-    margin: 0;
-}
-.viewContainer img {
-    width: 15px;
-    position: absolute;
-    top: 10px;
 }
 @media only screen and (min-width: 600px) {
     #jamr {
