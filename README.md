@@ -9,6 +9,6 @@
 Title: Jamr<br>
 Type: Project<br>
 Team: Jacob Kleiman & Jesus Quezada <br>
-Techologies: Express / Node JS <br>
-Requirments: Full CRUD on at least one database model
+Technologies: Express / Node JS <br>
+Requirements: Full CRUD on at least one database model
 <hr>
