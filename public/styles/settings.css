@@ -74,6 +74,7 @@ p{
     text-shadow: 0 2px 4px #7d2328;
 
 }
+
 #lounge {
     color: white;
     text-shadow: 0 2px 4px #7d2328;
@@ -90,6 +91,7 @@ p{
 .artistName {
     font-family: 'Raleway';
     border-radius: 13px;
+
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border: solid 1px #979797;
     height: 60px;
@@ -104,7 +106,9 @@ p{
 .bio {
     font-family: 'Raleway';
     border-radius: 13px;
+
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
     border: solid 1px #979797;
     height: 60px;
     padding: 15px;
@@ -184,11 +188,13 @@ p{
     font-weight: 500;
     font-size: 20px;
 }
+
 #delete {
     background-color: red;
     color: white;
     text-shadow: 0 2px 4px #a1a1a1;
 }
+
 .container {
     display: flex;
     align-items: center;
@@ -203,7 +209,6 @@ p{
     }
     .settings_label {
         margin-top: 10px;
-        /* margin-right: -100px; */
 
     }
     .bio {

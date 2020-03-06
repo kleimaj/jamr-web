@@ -400,7 +400,6 @@ function updateMap() {
 function degreesToRadians(degrees){
     return degrees * Math.PI / 180;
 }
-
 function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
     // The radius of the planet earth in meters
     let R = 6378137;
