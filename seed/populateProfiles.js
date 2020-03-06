@@ -16,8 +16,94 @@ module.exports = [
         instruments: ['Bass'],
         genres: ['Rock'],
         location: [37.78,-122.44],
+    },
+    {
+        artistName: 'James',
+        instruments: ['Guitar'],
+        genres: ['Rock'],
+        location: [37.352832, -121.895824],
+    },
+    {
+        artistName: 'Mickey',
+        instruments: ['Drums'],
+        genres: ['Rock'],
+        location: [ 37.771216, -122.432538],
+    },
+    {
+        artistName: 'Holden',
+        instruments: ['Drums'],
+        genres: ['Rock'],
+        location: [ 37.713902, -122.408784],
+    },
+    {
+        artistName: 'Lacey',
+        instruments: ['Piano'],
+        genres: ['Jazz'],
+        location: [ 37.692445, -122.462943],
+    },
+    {
+        artistName: 'Shelley',
+        instruments: ['Acoustic'],
+        genres: ['Alternative'],
+        location: [ 37.775670, -122.397669],
+    },
+    {
+        artistName: 'Max',
+        instruments: ['Samples / DJ'],
+        genres: ['Hip Hop'],
+        location: [ 37.663030, -122.435477],
+    },
+    {
+        artistName: 'Riley',
+        instruments: ['Samples / DJ'],
+        genres: ['Hip Hop'],
+        location: [ 37.776956, -122.485945],
+    },
+    {
+        artistName: 'Zepp',
+        instruments: ['Bass'],
+        genres: ['Jazz'],
+        location: [ 37.804242, -122.446554],
+    },
+    {
+        artistName: 'Andrew',
+        instruments: ['Bass'],
+        genres: ['Alternative'],
+        location: [ 37.828653, -122.371538],
+    },
+    {
+        artistName: 'Christian',
+        instruments: ['Guitar'],
+        genres: ['Alternative', 'Acoustic'],
+        location: [37.750070, -122.502946],
+    },
+    {
+        artistName: 'Kris',
+        instruments: ['Bass'],
+        genres: ['Alternative', 'Hip Hop'],
+        location: [37.810527, -122.286474],
+    },
+    {
+        artistName: 'Cat',
+        instruments: ['Bass'],
+        genres: ['Alternative', 'Hip Hop'],
+        location: [37.865671, -122.271625],
     }
 ]
+
+// More lat and long
+// 37.352832, -121.895824
+// 37.771216, -122.432538
+// 37.713902, -122.408784
+// 37.692445, -122.462943
+// 37.775670, -122.397669
+// 37.663030, -122.435477
+// 37.776956, -122.485945
+// 37.804242, -122.446554
+// 37.828653, -122.371538
+// 37.750070, -122.502946
+// 37.810527, -122.286474
+// 37.865671, -122.271625
 
 // const ProfileSchema = new mongoose.Schema({
 //     artistName: {
