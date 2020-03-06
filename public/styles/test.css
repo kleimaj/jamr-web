@@ -32,7 +32,7 @@ a:hover {
     margin-top: 5rem;
 }
 
-img{
+.profileimg{
     height: 200px;
     width: 200px;
 }
@@ -41,6 +41,13 @@ img{
     background-color: #c24e54;
     color: #fff;
 }
+
+.saveBtn a {
+   
+    color: #fff;
+    font-size: 1.5rem;
+}
+
 
 .saveBtnCenter{
     display: flex;
