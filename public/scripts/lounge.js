@@ -5,7 +5,7 @@ $("#menu-toggle").click(function(e) {
   });
 
 // Socket connection
-const socket = io.connect('http://localhost:4000');
+const socket = io.connect(process.env.SOCKET_CONNECTION || 'http://localhost:4000');
 console.log(socket);
 
 const name = localStorage.getItem('artistName');
