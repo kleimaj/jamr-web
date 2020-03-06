@@ -1,0 +1,64 @@
+/* Custom font */
+@font-face{
+    font-family: 'Vice City Sans';
+    src: url('../fonts/ViceCitySans.otf'); /* IE9 Compat Modes */
+}
+body {
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: "Vice City Sans";
+    color:  #c24e54;
+}
+
+h1{
+    margin-top: 5%;
+}
+a {
+    color: #fff;
+    font-family: "Vice City Sans";
+}
+
+a:hover {
+    color: rgb(216, 194, 194);
+    
+}
+
+.copyright{
+    width: 100vw;
+}
+
+.imgCenter{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.profileimg{
+    height: 200px;
+    width: 200px;
+}
+
+.saveBtn{
+    background-color: #c24e54;
+    color: #fff;
+}
+
+.saveBtn a {
+   
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+
+.saveBtnCenter{
+    display: flex;
+    justify-content: center;
+}
+
+.ctr{
+    display: flex;
+    justify-content: center;
+}
+
+.formBox{
+    position: relative;
+}

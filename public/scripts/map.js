@@ -160,9 +160,11 @@ let infowindow = new google.maps.InfoWindow({
             <p>Loves ${thisGenre}</p>
             <p>Plays ${thisInstrument}</p>
             <a href="/profiles/${id}">View</a>
-            <img src=../images/available.svg alt="online">
+            <img id='id' src=../images/unavailable.svg alt="online">
         </div>`
   });
+
+
 function updatePosition(myCoords) {
     let body = JSON.stringify({location: [myCoords.lat, myCoords.lng]});
     $.ajax({
@@ -274,7 +276,18 @@ function onSuccess(json) {
     }
     console.log(users);
     // localStorage.setItem('_id', json._id);
+
+   
+        const viewContainer = document.querySelector('.viewContainer');
+        console.log('page is fully loaded');
+        socket.emit('loggedOn', id);
+
+        socket.on('online', (msg) => {
+            console.log(msg);
+            turnON();
+        });
 }
+
 function onError(xhr, status, errorThrown) {
     alert("Sorry, there was a problem!");
     console.log("Error: " + errorThrown);
@@ -282,12 +295,13 @@ function onError(xhr, status, errorThrown) {
     console.dir(xhr);
 }
 
+// Everyone else on the map.
 function attachModals(marker, userObject) {
 
     console.log(userObject);
     let infowindow = new google.maps.InfoWindow({
         content: 
-        `<div class=viewContainer>
+        `<div class=viewContainer ${userObject._id}>
             <h2>${userObject.artistName}</h2>
             <p>Loves ${userObject.genres}</p>
             <p>Plays ${userObject.instruments}</p>
@@ -398,6 +412,7 @@ function updateMap() {
 function degreesToRadians(degrees){
     return degrees * Math.PI / 180;
 }
+
 function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
     // The radius of the planet earth in meters
     let R = 6378137;
@@ -420,6 +435,7 @@ function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
 
     return distance/1609.344;
 }
+
 function updateDistance() {
     let newVal = $('#distance').val()
     $('#distance_result').html(newVal+' Miles');
