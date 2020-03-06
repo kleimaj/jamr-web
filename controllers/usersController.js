@@ -18,6 +18,7 @@ const login = (req, res) => {
 
 const show = (req, res) => {
     let body = JSON.parse(req.params.id);
+    console.log(body);
     db.User.find(body, (err, foundUser) => {
         if (err) return res.status(400).json({status: 400, error: 'User Not Found, please try again'});
         if(foundUser.length==0) {
