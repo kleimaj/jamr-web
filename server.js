@@ -45,7 +45,8 @@ app.use('*', (req, res) => {
 
 // ------------------ START SERVER
 
-const server = app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+// const server = app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+const server = app.listen(process.env.PORT || 4000)
 
 // Sockets ---------------------------------------------------------------
 
