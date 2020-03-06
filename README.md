@@ -62,11 +62,12 @@ JavaScript Socket.io library. This allowed us to have seamless
 event-driven data on the server and cilent side. 
 
 <hr>
-Server Side
+
+## Server Side
 
 ![serversocket](documentation/screenshots/socketsServer.jpg)
 
-Client Side
+## Client Side
 
 ![serversocket](documentation/screenshots/socketsClient.jpg)
 
