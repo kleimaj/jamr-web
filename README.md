@@ -10,5 +10,11 @@ Title: Jamr<br>
 Type: Project<br>
 Team: Jacob Kleiman & Jesus Quezada <br>
 Technologies: Express / Node JS <br>
-Requirements: Full CRUD on at least one database model
+Requirements: Full CRUD on at least one database model <br>
+Goal: Allow local musicians to connect instantly in their geographical location. <br>
+Goals reached: Dynamic map display, filters and group chat <br>
+Strench Goals not reached: Private chatroom and image uploads
 <hr>
+
+# Jamr
+![homepage](jamrHomepage.jpg)
