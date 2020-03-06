@@ -259,12 +259,14 @@ function onSuccess(json) {
         let newMarker = new google.maps.Marker({
             position: {lat: lat, lng: lng}, 
             map: map,
-            icon: iconOther
+            // size: 'mid',
+            icon: iconOther,
+            // icon: getCircle()
         });
         markers.push(newMarker);
         // visibleMarkers.push(newMarker);
         newMarker.addListener('click', function() {
-            map.setZoom(12);
+            map.setZoom(15);
             map.setCenter(newMarker.getPosition());
           });
         attachModals(newMarker, user);
@@ -431,6 +433,19 @@ function updateDistance() {
         }
     }
     updateMap();
+}
+
+function getCircle () {
+    return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: .5,
+    scale: 40,
+    // scaledSize: new google.maps.Size(64, 64),
+
+    strokeColor: 'red',
+    strokeWeight: .5
+    };
 }
 // getProfiles();
 $('#map').css("display", "none");
