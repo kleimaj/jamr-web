@@ -6,8 +6,14 @@ $("#menu-toggle").click(function(e) {
 
 // Socket connection
 // const socket = io.connect('http://localhost:4000');
-const socket = io.connect('https://git.heroku.com/jamr-sei08.com');
+// const socket = io.connect('https://git.heroku.com/jamr-sei08.com');
+var socket = io();
+var el;
 
+socket.on('time', function(timeString) {
+  el = document.getElementById('server-time')
+  el.innerHTML = 'Server time: ' + timeString;
+});
 console.log(socket);
 
 const name = localStorage.getItem('artistName');
