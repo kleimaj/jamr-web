@@ -14,9 +14,18 @@
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
+  <!-- Semantic -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
   <!-- Bootstrap CSS  -->
-   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+
 
   <!-- custom css -->
   <link rel="stylesheet" href="styles/test.css">
@@ -26,75 +35,89 @@
 <body>
 
   <div class="container">
-
-    <h1>Welcome, </h1>
+    <h1 class="mt-5">Welcome, </h1>
 
     <div class="imgCenter mb-5">
       <img src="" alt="profile image" class="img-thumbnail">
     </div>
-
-    
   </div>
 
   <form>
     <div class="container ctr"> 
         <div class="formBox">
           <p class="mb-5 text-center">Update your profile</p>
-          <div class="form-group row">
-
-           
-           
-            <label for="inputEmail3" class="col-sm-4 col-form-label">
-              Username
-            </label>
-  
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="username">
+         
+          <form class="update">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Artist</label>
+              <div class="col-sm-10">
+                <input id ="artistName" class="artistName form-control" id="inputEmail3">
+              </div>
             </div>
-          </div>
   
-          <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-4 col-form-label">Password</label>
-            <div class="col-sm-8">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-            </div>
-          </div>
-  
-          
-
           <div class="form-group">
             <label for="inputEmail3">Bio</label>
               <textarea class="bio form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
           </div>
 
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <div class="saveBtnCenter">
-                <button type="submit" class="btn saveBtn text-light">
-                  Save
-                </button>
-              </div>
+          
+            <div class="form-group row">
+              <select class=" instru ui fluid dropdown mt-5" multiple>
+                <option value=""> Change your Instrument</option>
+                <option value="Guitar">Guitar</option>
+                <option value="Piano">Piano</option>
+                <option value="Bass">Bass</option>
+                <option value="Drums">Drums</option>
+                <option value="Samples/DJ">Samples / DJ </option>
+              </select>
             </div>
-          </div>
+
+            <div class="form-group row">
+              <select class="genre ui fluid dropdown mt-5" type="checkbox" multiple>
+                <option value="">Change Your Genre</option>
+                <option value="Rock">Rock</option>
+                <option value="Alternative">Alternative</option>
+                <option value="Folk">Folk</option>
+                <option value="Electronica">Electronica</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Acoustic">Acoustic</option>
+                <option value="Hip-Hop">Hip-Hop</option>
+              </select>
+            </div>
+            <div class="saveBtnCenter">
+              <button class="btn saveBtn mt-2 mb-5" type="submit">
+                  Save Changes
+              </button>
+            </div>
+            
+          </form>
 
         </div>
     </div>
   </form>
 
-    
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
-    </div>
-  </section>
-
- 
-
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <!-- <script src="vendor/jquery/jquery.min.js"></script>
 
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+   <!-- Jquery -->
+   <script
+   src="https://code.jquery.com/jquery-3.4.1.min.js"
+   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+   crossorigin="anonymous"></script>
+ 
+     <!-- PopperJS -->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ 
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
+     <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+     <!-- Semantic -->
+     
+ 
+     <script src="/scripts/settings.js"></script>
 
 </body>
 
