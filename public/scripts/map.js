@@ -346,9 +346,11 @@ function updateMap() {
         if (iFilter)
             if (!users[i].instruments.includes(iFilter))
                 return true;
+        // check genre
         if (gFilter)
             if (!users[i].genres.includes(gFilter))
                 return true;
+        // check distance
         if ((getDistanceBetweenPoints(myCoords.lat,myCoords.lng, users[i].location[0],users[i].location[1])) > dFilter) {
             return true;
         }
@@ -398,6 +400,7 @@ function updateMap() {
 function degreesToRadians(degrees){
     return degrees * Math.PI / 180;
 }
+
 function getDistanceBetweenPoints(lat1, lng1, lat2, lng2){
     // The radius of the planet earth in meters
     let R = 6378137;
