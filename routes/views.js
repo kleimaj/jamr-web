@@ -61,9 +61,7 @@ router.get('/signup', (req, res) => {
 })
 
 router.get('/createProfile', (req,res) => {
-    res.sendFile('views/signup/createProfile.html', {
-        root: __dirname + '/../'
-    });
+    res.render('createProfile');
 });
 
 
@@ -94,30 +92,56 @@ router.get('/settings', (req,res) => {
 // Multer
 router.get('/test', (req, res) => {
     res.render('index');
+    console.log('ejs');
 });
 
 router.post('/upload', (req, res) => {
     
     upload(req, res, (err) => {
 
+        // if (err){
+        //     res.render('index', {
+        //         msg: err
+        //     });
+        // }
+
         if (err){
-            res.render('index', {
+            res.render('createProfile', {
                 msg: err
             });
         }
+
+        // else {
+
+        //     if (req.file === undefined){
+
+        //         res.render('index', {
+        //             msg: 'Error: No file selected'
+        //         });
+
+        //     }
+
+        //     else {
+        //         res.render('index', {
+        //             msg: 'File uploaded',
+        //             file: `uploads/${req.file.filename}`
+        //         });
+        //     }
+            
+        // }
 
         else {
 
             if (req.file === undefined){
 
-                res.render('index', {
+                res.render('createProfile', {
                     msg: 'Error: No file selected'
                 });
 
             }
 
             else {
-                res.render('index', {
+                res.render('createProfile', {
                     msg: 'File uploaded',
                     file: `uploads/${req.file.filename}`
                 });
