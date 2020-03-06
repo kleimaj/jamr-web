@@ -10,9 +10,10 @@ let map = new google.maps.Map(document.getElementById('map'), {
     center: default_coords,
     zoom: 12,
     disableDefaultUI: true,
-    styles: [
+    hide: [
         {
           featureType: 'poi.business',
+          elementType: 'labels.text.fill',
           stylers: [{visibility: 'off'}]
         },
         {
@@ -20,6 +21,121 @@ let map = new google.maps.Map(document.getElementById('map'), {
           elementType: 'labels.icon',
           stylers: [{visibility: 'off'}]
         }
+      ],
+    styles: [
+        // {
+        //   featureType: 'poi.business',
+        //   stylers: [{visibility: 'off'}]
+        // },
+        // {
+        //   featureType: 'transit',
+        //   elementType: 'labels.icon',
+        //   stylers: [{visibility: 'off'}]
+        // }
+        // {
+        //     featureType: 'administrative.locality',
+        //     elementType: 'labels.text.fill',
+        //     stylers: [{visibility: "off"}]
+        //   },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.stroke',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.icon',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'geometry',
+            stylers: [{color: '#CCCA7C'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'geometry',
+            stylers: [{color: '#C1C6D6'}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'labels.icon',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{color: '#54A2CC'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [{visibility: "off"}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.stroke',
+            stylers: [{visibility: "off"}]
+          },
+        //   {
+        //     "featureType": "road.arterial",
+        //     "elementType": "geometry",
+        //     "stylers": [
+        //       { "color": "#CCFFFF" }
+        //     ]
+        //   },
+          {
+            featureType: "landscape",
+            elementType: "labels",
+            stylers: [
+              { "visibility": "off" }
+            ]
+          }
       ]
 });
 const icon = {
@@ -30,6 +146,7 @@ const iconOther = {
     url:'images/musicianOther.png',
     scaledSize: new google.maps.Size(30, 30)
 }
+
 
 let id = localStorage.getItem('_id');
 let thisArtist = localStorage.getItem('artistName');
@@ -75,8 +192,9 @@ function updateSuccess(json) {
     console.log('Updated Location in Mongo');
 }
 function getProfiles(position) {
-    console.log('here');
     document.querySelector('#status').innerHTML = '';
+    document.querySelector('#status').classList.add('hidden');
+    $('.map_filters').removeClass('hidden');
     const default_coords = {};
     default_coords.lat  = position.coords.latitude;
     default_coords.lng = position.coords.longitude;
@@ -131,7 +249,7 @@ function getProfiles(position) {
 
 function onSuccess(json) {
     // console.log("Successfully retrieved profiles...");
-    $('.filters').css('display','block'); 
+    // $('.filters').css('display','block'); 
     for (let user of json) {
         // console.log(user);
         if (user._id != id) {
@@ -143,12 +261,14 @@ function onSuccess(json) {
         let newMarker = new google.maps.Marker({
             position: {lat: lat, lng: lng}, 
             map: map,
-            icon: iconOther
+            // size: 'mid',
+            icon: iconOther,
+            // icon: getCircle()
         });
         markers.push(newMarker);
         // visibleMarkers.push(newMarker);
         newMarker.addListener('click', function() {
-            map.setZoom(12);
+            map.setZoom(15);
             map.setCenter(newMarker.getPosition());
           });
         attachModals(newMarker, user);
@@ -330,11 +450,32 @@ function updateDistance() {
     }
     updateMap();
 }
+
+function getCircle () {
+    return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: .5,
+    scale: 40,
+    // scaledSize: new google.maps.Size(64, 64),
+
+    strokeColor: 'red',
+    strokeWeight: .5
+    };
+}
 // getProfiles();
 $('#map').css("display", "none");
+// $('.filters').css('display','none');
 $('.show').on('click', makeMap());
+$('.map_filters').on('click',() => {
+    console.log('here');
+    $('.filters').toggleClass('hidden');
+    $('.map_filters').toggleClass('buttonUp')
+});
+$('.map_filters').addClass('hidden');
 $('.instru_filter').on('change',updateMap);
 $('.genre_filter').on('change',updateMap);
+<<<<<<< HEAD
 $('#distance').on('change',updateMap);
 document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
 // .appendChild(`${radar}`);
@@ -348,3 +489,9 @@ function turnON () {
 };
 
 
+=======
+$('#distance').on('change',updateMap); // Firefox
+$('#distance').on('input',updateMap); // Chrome and IE
+// document.querySelector('.navbar-brand').innerHTML=`Welcome, ${thisArtist}`;
+// .appendChild(`${radar}`);
+>>>>>>> submaster

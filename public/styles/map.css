@@ -1,0 +1,154 @@
+@font-face{
+    font-family: 'Vice City Sans';
+    src: url('../fonts/ViceCitySans.otf'); /* IE9 Compat Modes */
+}
+body{
+    background: #ffffff;  
+    font-family: 'Vice City Sans';
+    overflow: hidden;
+
+}
+
+/* h1 {
+    font-size: 4rem;
+    /* color: rgba(19, 98, 144, 0.657); 
+    color: black;
+    margin-top: 8rem;
+    text-align: center;
+
+} */
+
+.navbar {
+    background-color: #CB686E;
+    color: white;
+}
+.navbar a {
+    color: white;
+}
+#jamr {
+    color: white;
+    filter: drop-shadow( 2px 2px 1px rgba(0, 0, 0, .7));
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+}
+#settings {
+    color: white;
+    text-shadow: 0 2px 4px #7d2328;
+
+}
+#lounge {
+    color: white;
+    text-shadow: 0 2px 4px #7d2328;
+
+}
+#map {
+    height: 92vh;
+    width: 100vw;
+    /* margin: 0 auto; */
+  }
+.map_filters {
+    width: 89px;
+  height: 78.3px;
+  border-radius: 13px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: #CB686E;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    right: 0;
+    top: 550px;
+    /* top: 470px; */
+}
+.buttonUp {
+    top: 470px;
+}
+#map_filters:focus {
+    outline: none;
+}
+#filter_icon {
+    width: 60px;
+  height: 60px;
+}
+#status {
+    font-size: 30px;
+}
+#distance_label {
+    color: #495057;
+}
+#distance_result {
+    color: #495057;
+    display: block;
+    position: relative;
+    left: 200px;
+}
+.hidden {
+    display: none;
+}
+.form-row, .loginSignUp{
+    margin: 0 auto;
+}
+.filters {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 550px;
+    width: 320px;
+}
+.signupBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.viewContainer {
+    line-height: .5em;
+    width: auto;
+    min-width: 100px;
+    max-width: 400px;
+    /* height: 70px; */
+    height: auto;
+    max-height: 100px;
+    margin: 0;
+}
+.viewContainer p {
+    line-height: 1.5em;
+    margin: 2px 0;
+    display: block;
+    font-family: 'Raleway';
+    font-size: 1em;
+}
+.viewContainer a {
+    display: block;
+    margin: 6px 0;
+    font-family: 'Raleway';
+    /* line-height: 2em; */
+}
+.viewContainer h2 {
+    font-size: 1.25em;
+    font-family: 'Vice City Sans';
+    text-align: center;
+    margin: 0;
+}
+.viewContainer img {
+    width: 15px;
+    position: absolute;
+    top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile_wrapper {
+        position: relative;
+        overflow: hidden;
+        height: 100vh;
+    }
+    .filters {
+        top: 520px;
+    }
+    .map_filters {
+        top: 450px;
+    }
+    .buttonUp {
+        top: 420px;
+    }
+  }
