@@ -11,6 +11,9 @@ body{
 h2 {
     font-size: 50px;
     margin-top: 20px;
+    color: #CB686E;
+    text-shadow: 0 2px 4px #a1a1a1;
+    
 }
 ul{
  font-family: 'Raleway';
