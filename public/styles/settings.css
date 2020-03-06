@@ -1,38 +1,219 @@
+@font-face{
+    font-family: 'Vice City Sans';
+    src: url('../fonts/ViceCitySans.otf'); /* IE9 Compat Modes */
+}
 body{
-    background: #4CA1AF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ffffff;  
+    font-family: 'Vice City Sans';
     /* overflow: hidden; */
-    font-family: 'Roboto Mono';
 
 }
-
-h1 {
-    font-size: 4rem;
-    color: rgba(19, 98, 144, 0.657);
-    margin-top: 8rem;
-    text-align: center;
+h2 {
+    font-size: 40px;
+    margin-top: 20px;
+    font-family: 'Vice City Sans';
 
 }
+ul{
+ font-family: 'Raleway';
+ font-size: 24px;
+ /* border-radius: 13px;
+ box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+ border: solid 1px #979797; */
+ /* height: 60px; */
+ padding: 0 35px;
+ max-width: 200px;
+ max-height: 200px;
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+label {
+    margin-top: 20px;
+    font-size: 30px;
+    margin-left: 50px;
 
-#map {
-    height: 600px;
-    width: 600px;
+}
+p{
+    font-size: 30px;
+}
+.update {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.flex {
+    max-height: 120px;
+    margin: 25px;
+}
+.navbar {
+    background-color: #CB686E;
+    color: white;
+}
+.navbar a {
+    color: white;
+}
+#jamr {
+    color: white;
+    filter: drop-shadow( 2px 2px 1px rgba(0, 0, 0, .7));
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+}
+#profile_pic {
+    border-radius: 50%;
+    padding: 25px;
+}
+#settings {
+    color: white;
+    text-shadow: 0 2px 4px #7d2328;
+
+}
+#lounge {
+    color: white;
+    text-shadow: 0 2px 4px #7d2328;
+
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
     margin: 0 auto;
-  }
+}
 
+.artistName {
+    font-family: 'Raleway';
+    border-radius: 13px;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); */
+    border: solid 1px #979797;
+    height: 60px;
+    padding: 15px;
+    min-width: 200px;
+    max-width: 300px;
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.bio {
+    font-family: 'Raleway';
+    border-radius: 13px;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); */
+    border: solid 1px #979797;
+    height: 60px;
+    padding: 15px;
+    min-width: 200px;
+    max-width: 300px;
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#distance_result {
+    color: #495057;
+    display: block;
+    position: relative;
+    left: 200px;
+}
+.hidden {
+    display: none;
+}
 .form-row, .loginSignUp{
     margin: 0 auto;
 }
-
+.form-control {
+    font-family: 'Raleway';
+}
+.settings_label {
+    font-family: 'Vice City Sans';
+    font-size: 30px;
+}
+.filters {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 550px;
+    width: 320px;
+}
 .signupBtn{
     display: flex;
     justify-content: center;
 }
-
-.viewContainer {
-    line-height: .5em;
+.comments {
+    display: flex;
+    align-items: left;
+    justify-content: space-around;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
 }
-/* .viewButton {
-    background-color: blue;
-} */
+.comment {
+    margin: 25px;
+    min-width: 100px;
+    border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border: solid 1px #979797;
+    padding: 10px 35px;
+
+}
+.comment p {
+    font-family: 'Raleway';
+    font-size: 24px;
+}
+.btn {
+    background-color: white;
+    font-family: "Vice City Sans";
+    font-size: 20px;
+    text-shadow: 0 2px 4px #a1a1a1;
+    color: #c24e54;
+    width: 200px;
+    border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.ui {
+    border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border: solid 1px #979797;
+    /* height: 50px; */
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 20px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+@media only screen and (min-width: 600px) {
+    .bio_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .settings_label {
+        margin-top: 10px;
+
+    }
+    .bio {
+        min-height: 120px;
+        margin: 20px;
+    }
+    .comments {
+        flex-direction: row;
+    }
+    label {
+        margin-top: 100px;
+        /* font-size: 30px; */
+    }
+    ul {
+        margin: 20px;
+        min-height: 120px;
+    }
+    p {
+        max-height: 50px;
+    }
+    h2 {
+        font-size: 50px;
+    }
+  }
