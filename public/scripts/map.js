@@ -193,9 +193,9 @@ function getProfiles(position) {
     document.querySelector('#status').innerHTML = '';
     document.querySelector('#status').classList.add('hidden');
     $('.map_filters').removeClass('hidden');
-    const default_coords = {};
-    default_coords.lat  = position.coords.latitude;
-    default_coords.lng = position.coords.longitude;
+    // const default_coords = {};
+    // default_coords.lat  = position.coords.latitude;
+    // default_coords.lng = position.coords.longitude;
     myCoords = default_coords;
     updatePosition(myCoords);
     // default_coords.lat = latitude; 
@@ -322,7 +322,8 @@ function getLocation() {
       status.textContent = 'Geolocation is not supported by your browser';
     } else {
       status.innerHTML = 'Finding users… (can take a few seconds)';
-      navigator.geolocation.getCurrentPosition(getProfiles, error);
+      getProfiles()
+      // navigator.geolocation.getCurrentPosition(getProfiles, error);
     }
 }
 
